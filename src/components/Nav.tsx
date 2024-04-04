@@ -28,7 +28,7 @@ export default function Nav() {
         <li class={`border-b-2 ${active("/resume")}`}>
           <A href="/resume">Resume</A>
         </li>
-        <li class={`border-b-2 ${active("/tailwind")} hidden`}>
+        <li class={`border-b-2 ${active("/tailwind")}`}>
           <A href="/tailwind">Tailwind</A>
         </li>
       </ul>
