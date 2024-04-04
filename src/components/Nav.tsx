@@ -18,15 +18,18 @@ export default function Nav() {
       </A>
       <ul class="flex items-center gap-4 leading-5 sm:gap-6">
         <li class={`border-b-2 ${active("/")}`}>
-          <a
+          <A
             class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
             href="/"
           >
             Home
-          </a>
+          </A>
         </li>
         <li class={`border-b-2 ${active("/resume")}`}>
-          <a href="/resume">Resume</a>
+          <A href="/resume">Resume</A>
+        </li>
+        <li class={`border-b-2 ${active("/tailwind")} display-none`}>
+          <A href="/tailwind">Tailwind</A>
         </li>
       </ul>
     </nav>
