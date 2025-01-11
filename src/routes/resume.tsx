@@ -32,7 +32,7 @@ export default function Resume() {
             </a>
           </div>
           <h2 class="label">
-            Leader &amp; full stack engineer with 16 years of professional
+            Leader &amp; full stack engineer with over 17 years of professional
             experience
           </h2>
         </div>
@@ -109,17 +109,18 @@ export default function Resume() {
                 class="logo"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAyBJREFUOE9VU0tME0EYnmnZPoTWVh4RjAGKCT7QcIHGSiJEgweDQrUkBfpSax8kUGj0YCRGJWrASmqiVhKF0loiRMCIJw5GEw8qB4lG5IKADyzYdmuB3VLaNbMPjbvJ7uzOfP//zfd9AwEAAAIIKDSgxxQ4bT5jipPknaKiHYdn5+bOx6LRmi052cce3O99DiEEgKIABQFAD3QDhNYZ9O6iQsXjzzMz1wUiYSRdJHrpuefpsdisbcHF4M1EMsGTZEheKZXK+vdTU139fX0GhEX1gNVma4rguHlbXq5+dZVQx+NEaVXVIbtBr1tFzHQ63dUIHrkIKQhkclknEY9bpXKZ8SFihKro9AZ3JBxuEQhF0znZWdei0WjnYCBQQHegAGg0GNzRUKiFj2GpvNxc+8LXBY9cJu/0+XwdNANLS2vJty+zH9Be0ITf7+tA27I32y2pZGrTfpWq99n4+BxBrGVlZmY9DYVCx7crFHs97tsfEZ6+7M3NlsUf3+9WHqzMa3W0BZGYeqNxLEWl5gf6vecaGrQTFORPY3zeMlrv8/k7UEOmAATA2d6eHw6Hrwil0u7Q4s8XQoHAc6S6+sbryclC3sbGAYIgVDiON6VhWLhCpSpBTVgojadt1BtNYz5vXy2y59RZ89F9e3ZPOlodwdq6uqRMJvOTBFlAxsmKOrVaqtfpVukCrK00EW1Dw5yyvFzpcDiCTqcz/5bLNY8KqzWaTwmS2IXGEsnm+cHAowKuKasB89I2aj0YJtg60N9fS1GUAEK4juhRSUqgPqEm0JqRJyNiHg+uM0FiQshc6AMCYDSYvEKppBskEqVrJHkyhuM16ekZ8WgUF4vE4l/DQ8PZSOB/yUU1IPuDgqDd2Z6/tBSchgC6VlZiFzY2kjy0GEtLSykUhQqXq2eeUYwJyd8oc4rSU4iJ0eTlYdgQTKVy8N+xLpFYFPB7va00jmXMwVkX2NixO7JZrU3FxTsn3rx7e5lcI8yjo6N8znLmEDGs/2PwHwvmsAGNpn5ZJBYHfGx3Ti+uGB1lRhCWAacOy0Tb2OhRlpVdQtYylnPZYxj8AZv+VChCOS8eAAAAAElFTkSuQmCC"
               />
-              <a target="_blank" href="https://bisonok.com">
-                bisonok.com
+              <a target="_blank" href="https://bisonpayments.com">
+                bisonpayments.com
               </a>
             </span>
             <ul class="keywords">
               <li>aws lambda</li>
               <li>appsync</li>
               <li>dynamodb</li>
+              <li>graphql</li>
+              <li>node.js</li>
               <li>react</li>
               <li>tailwind</li>
-              <li>node.js</li>
               <li>shadcn/ui</li>
               <li>storybook</li>
               <li>typescript</li>
@@ -132,7 +133,12 @@ export default function Resume() {
                 <li>
                   <p>
                     Mentored the engineering team across multiple areas such as
-                    React, TypeScript, and AppSync
+                    React, TypeScript, and GraphQL
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Led a team of 3 engineers helping to reduce the load for the head of engineering
                   </p>
                 </li>
                 <li>
@@ -141,16 +147,21 @@ export default function Resume() {
                     frontend tech stack
                   </p>
                 </li>
-                <li>
+                {/* <li>
                   <p>
                     Broke out shared functionality such as components, urql
                     setup, and routing into reusable package
                   </p>
-                </li>
+                </li> 
                 <li>
                   <p>
                     Built our User Manager solo, frontend & backend, while
                     acting as an example of best practices
+                  </p>
+                </li> */}
+                <li>
+                  <p>
+                    Improved lambda development by reducing boilerplate, improving security, and adding functionality
                   </p>
                 </li>
                 <li>
