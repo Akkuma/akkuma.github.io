@@ -21,7 +21,7 @@ export default function Tailwind() {
           tools. I love making things that others get to use.
         </P>
         <P>
-          Now let me tell you about why I'm a great engineer you'd want at your company.
+          Now let me tell you about why I'm a great engineer you'd want working with you or your company.
         </P>
         <P>
           Let's start with this site. I whipped it up overnight as a way
@@ -157,8 +157,8 @@ export default function Tailwind() {
           I hope I've tickled your fancy enough for you to check out my full{" "}
           <A href="/resume" class="text-sky-700">
             resume
-          </A>
-          . If you're excited to talk to me reach out and let's chat.
+          </A>, where you can also find my contact infromation. 
+          If you're excited to talk to me reach out and let's chat to see how I can help you.
         </P>
         <p class="leading-7 [&:not(:first-child)] text-pretty mt-6 animate-in anim-ease-in-out fade-in-0 fill-mode-backwards motion-reduce:animate-none [animation-timeline:view()] [animation-range:entry_0%_contain_10%] supports-no-view-driven-animations:animate-none">
           <span class="block">Thanks for stopping on by,</span>

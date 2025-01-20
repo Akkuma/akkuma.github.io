@@ -21,7 +21,7 @@
     ]
   },
   "src/routes/about.tsx?pick=default&pick=$css": {
-    "file": "assets/about-DTChdewz.js",
+    "file": "assets/about-h-4VhGKM.js",
     "name": "about",
     "src": "src/routes/about.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -55,7 +55,7 @@
     ]
   },
   "virtual:#vinxi/handler/client": {
-    "file": "assets/client-EVmjcNf_.js",
+    "file": "assets/client-cPYqd3bk.js",
     "name": "client",
     "src": "virtual:#vinxi/handler/client",
     "isEntry": true,
