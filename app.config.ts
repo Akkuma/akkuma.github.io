@@ -5,6 +5,10 @@ export default defineConfig({
     baseURL: process.env.BASE_PATH,
     prerender: {
       crawlLinks: true,
+      routes: [
+        '/',
+        '/404.html'
+      ]
     },
   },
 });
