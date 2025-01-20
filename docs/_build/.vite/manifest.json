@@ -11,9 +11,19 @@
     "name": "web"
   },
   "src/routes/[...404].tsx?pick=default&pick=$css": {
-    "file": "assets/_...404_-CmFuozvH.js",
+    "file": "assets/_...404_-CFLaty3x.js",
     "name": "_...404_",
     "src": "src/routes/[...404].tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-BWkzByzL.js"
+    ]
+  },
+  "src/routes/about.tsx?pick=default&pick=$css": {
+    "file": "assets/about-DSNGkftf.js",
+    "name": "about",
+    "src": "src/routes/about.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -44,19 +54,8 @@
       "assets/resume-iKRcgLVx.css"
     ]
   },
-  "src/routes/tailwind.tsx?pick=default&pick=$css": {
-    "file": "assets/tailwind-D-fEzqIM.js",
-    "name": "tailwind",
-    "src": "src/routes/tailwind.tsx?pick=default&pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_web-BWkzByzL.js",
-      "_components-DLLxn0Vo.js"
-    ]
-  },
   "virtual:#vinxi/handler/client": {
-    "file": "assets/client-CEdngUF8.js",
+    "file": "assets/client-wxiWu03s.js",
     "name": "client",
     "src": "virtual:#vinxi/handler/client",
     "isEntry": true,
@@ -66,12 +65,12 @@
     ],
     "dynamicImports": [
       "src/routes/[...404].tsx?pick=default&pick=$css",
+      "src/routes/about.tsx?pick=default&pick=$css",
       "src/routes/index.tsx?pick=default&pick=$css",
-      "src/routes/resume.tsx?pick=default&pick=$css",
-      "src/routes/tailwind.tsx?pick=default&pick=$css"
+      "src/routes/resume.tsx?pick=default&pick=$css"
     ],
     "css": [
-      "assets/client-BCs5qoNA.css"
+      "assets/client-BEMkmzfZ.css"
     ]
   }
 }
