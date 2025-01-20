@@ -8,7 +8,7 @@ export default function Tailwind() {
         <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Hi{" "}
           <span class="inline-block fill-mode-backwards animate-in anim-delay-1000 anim-duration-[1.5s] slide-in-from-bottom-full fade-in-0 anim-ease-elastic motion-reduce:animate-none">
-            fellow,
+            fellow human,
           </span>
         </h1>
       </header>
