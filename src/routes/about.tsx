@@ -8,7 +8,7 @@ export default function Tailwind() {
         <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Hi{" "}
           <span class="inline-block fill-mode-backwards animate-in anim-delay-1000 anim-duration-[1.5s] slide-in-from-bottom-full fade-in-0 anim-ease-elastic motion-reduce:animate-none">
-            Tailwind,
+            fellow,
           </span>
         </h1>
       </header>
@@ -21,21 +21,21 @@ export default function Tailwind() {
           tools. I love making things that others get to use.
         </P>
         <P>
-          Now I want to tell you why I'd be a great fit for the Staff Software
-          Engineer position.
+          Now let me tell you about why I'm a great engineer you'd want at your company.
         </P>
         <P>
-          Why me? Let's start with this site. I whipped it up overnight as a way
-          to apply for the job. It uses tech I don't use daily at my job,{" "}
+          Let's start with this site. I whipped it up overnight as a way
+          to apply for a job. It uses tech I don't use daily at my job,{" "}
           <a
             class="text-sky-700"
             href="https://start.solidjs.com/"
             target="_blank"
+            rel="noreferrer"
           >
             SolidStart
           </a>{" "}
           &{" "}
-          <a class="text-sky-700" href="https://bun.sh/" target="_blank">
+          <a class="text-sky-700" href="https://bun.sh/" target="_blank" rel="noreferrer">
             Bun
           </a>
           . New doesn't scare me. It is an adventure waiting for me to begin.
@@ -43,13 +43,14 @@ export default function Tailwind() {
           of jumping into unique challenges.
         </P>
         <P>
-          What are a few of the responsibilities exciting me in particular?
+          What are a few of the responsibilities that excite me about a job?
           <ul class="list-disc w-96 ml-4 mt-2">
             {[
-              "Rust to learn & speed up development",
-              "Improving open source projects",
+              "Tackling new challenges",
               "Helping other engineers",
+              "Solving real problems people are facing",
               "Being a champion for quality",
+              "Donning my robe and wizard hat to make magic happen"
             ].map((val, i) => (
               <Li>
                 {val} <Check index={i} />
@@ -68,14 +69,9 @@ export default function Tailwind() {
         </P>
         <P>
           At Bison, I was hired onto the platform team to raise the bar of the
-          engineering team. This meant building out our repo template,
-          addressing concerns & problems, rapidly unblocking other engineers,
-          guiding other engineers in writing better code, working on CI/CD,
-          choosing tools, future tech direction, and much more. Now when you go
-          to my resume, you might be wondering why I would want to leave them.
-          The answer is that I enjoy my job there and wasn't looking for a new
-          job, but this fills a desire I've long had of building a tool for a
-          global engineering audience that is utilized and loved.
+          engineering team. This meant building out our repo template, 
+          rapidly unblocking other engineers, helping other engineers, 
+          working on our CI/CD, guiding our future tech direction, and much more.
         </P>
         <P>
           Addtionally, I've written detailed and well regarded ADRs at Bison.
@@ -85,11 +81,17 @@ export default function Tailwind() {
             href="/ADR_Frontend_Framework.pdf"
             class="text-sky-700"
             target="_blank"
+            rel="noreferrer"
           >
             frontend framework direction for the company
           </a>{" "}
           &{" "}
-          <a href="/ADR_Metaframework.pdf" class="text-sky-700" target="_blank">
+          <a 
+            href="/ADR_Metaframework.pdf" 
+            class="text-sky-700" 
+            target="_blank" 
+            rel="noreferrer"
+          >
             metaframework analysis for future use
           </a>
           .
@@ -104,6 +106,7 @@ export default function Tailwind() {
                 href="https://github.com/dannyhw/storybook-chromatic-link-comment/pull/107"
                 class="text-sky-700"
                 target="_blank"
+                rel="noreferrer"
               >
                 storybook-chromatic-link-comment enhancement
               </a>
@@ -113,6 +116,7 @@ export default function Tailwind() {
                 href="https://github.com/storybookjs/storybook/issues/26280"
                 class="text-sky-700"
                 target="_blank"
+                rel="noreferrer"
               >
                 Storybook RC issue
               </a>
@@ -122,6 +126,7 @@ export default function Tailwind() {
                 href="https://github.com/urql-graphql/urql/issues/3462"
                 class="text-sky-700"
                 target="_blank"
+                rel="noreferrer"
               >
                 Urql issue & offering contribution
               </a>
@@ -131,8 +136,19 @@ export default function Tailwind() {
                 href="https://github.com/lukeed/dset/pull/40"
                 class="text-sky-700"
                 target="_blank"
+                rel="noreferrer"
               >
                 dset TypeScript improvement
+              </a>
+            </Li>
+                        <Li>
+              <a
+                href="https://github.com/Akkuma/akita-email"
+                class="text-sky-700"
+                target="_blank"
+                rel="noreferrer"
+              >
+                akita-email a port of jsx-email to utilize kita (WIP)
               </a>
             </Li>
           </ul>
@@ -142,11 +158,10 @@ export default function Tailwind() {
           <A href="/resume" class="text-sky-700">
             resume
           </A>
-          . I know I'm excited to talk more with you all and hope to hear back
-          soon.
+          . If you're excited to talk to me reach out and let's chat.
         </P>
         <p class="leading-7 [&:not(:first-child)] text-pretty mt-6 animate-in anim-ease-in-out fade-in-0 fill-mode-backwards motion-reduce:animate-none [animation-timeline:view()] [animation-range:entry_0%_contain_10%] supports-no-view-driven-animations:animate-none">
-          <span class="block">Thanks for your time,</span>
+          <span class="block">Thanks for stopping on by,</span>
           <span class="block">Greg</span>
         </p>
       </div>
