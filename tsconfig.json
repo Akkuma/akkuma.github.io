@@ -26,6 +26,7 @@
 		"jsxImportSource": "solid-js",
 		"types": ["vite/client"],
 		"moduleResolution": "bundler",
+		"resolvePackageJsonImports": true,
 		"paths": {
 			"#/*": ["./src/*"]
 		}

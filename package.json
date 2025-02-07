@@ -10,6 +10,9 @@
     "fmt:check": "biome ci --changed --no-errors-on-unmatched .",
     "pdf": "node ./scripts/pdf.js"
   },
+  "imports": {
+    "#/*": "./src/*"
+  },
   "dependencies": {
     "@solid-primitives/transition-group": "^1.1.0",
     "@solidjs/router": "^0.15.0",
@@ -37,9 +40,6 @@
     "solid-mdx": "^0.0.7",
     "type-fest": "^4.33.0",
     "typescript": "^5.7.3"
-  },
-  "imports": {
-    "#/*": "./src/*"
   },
   "patchedDependencies": {
     "solid-transition-group@0.2.3": "patches/solid-transition-group@0.2.3.patch"
