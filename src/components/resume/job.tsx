@@ -1,5 +1,5 @@
 import type { Iso8601 } from '@kurone-kito/jsonresume-types';
-import { For, type JSX, Show } from 'solid-js';
+import { For, Show } from 'solid-js';
 import { Location } from '#/icons/location.jsx';
 import { Link } from '../link.jsx';
 import { Keywords } from './keywords.jsx';

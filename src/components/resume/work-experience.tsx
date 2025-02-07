@@ -1,4 +1,4 @@
-import { For, type JSX } from "solid-js";
+import { For } from "solid-js";
 import { Section } from "./section.jsx";
 import { Job } from "./job.jsx";
 import type { ResumeSchema } from "@kurone-kito/jsonresume-types";
@@ -11,7 +11,7 @@ interface ResumeWork extends Omit<Job, 'highlights'> {
   logo?: string;
   keywords: readonly string[]
   startDate: string;
-  highlights: JSX.Element[];
+  highlights: readonly string[];
 }
 export function WorkExperience(props: { work: readonly ResumeWork[] }) {
   	return <Section class="section">

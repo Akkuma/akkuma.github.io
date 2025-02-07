@@ -8,11 +8,11 @@ const variants = {
 export function Box(props: {
 	children: JSX.Element | JSX.Element[];
 	variant?: keyof typeof variants;
-	class: string;
+	class?: string;
 	as?: keyof JSX.HTMLElementTags;
 }) {
 	return (
-		<Dynamic component={props.as ?? 'div'} class={`${variants[props.variant ?? 'default']} ${props.class}`}>
+		<Dynamic component={props.as ?? 'div'} class={`${variants[props.variant ?? 'default']} ${props.class ?? ''}`}>
 			{props.children}
 		</Dynamic>
 	);
