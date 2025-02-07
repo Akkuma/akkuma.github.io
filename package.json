@@ -39,8 +39,7 @@
     "postcss-nesting": "^12.1.1",
     "solid-mdx": "^0.0.7",
     "type-fest": "^4.33.0",
-    "typescript": "^5.7.3",
-    "vite-tsconfig-paths": "^5.1.4"
+    "typescript": "^5.7.3"
   },
   "patchedDependencies": {
     "solid-transition-group@0.2.3": "patches/solid-transition-group@0.2.3.patch"

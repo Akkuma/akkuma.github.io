@@ -1,5 +1,4 @@
 import { defineConfig } from '@solidjs/start/config';
-import tscConfigPaths from 'vite-tsconfig-paths'
 // @ts-expect-error Vinxi sucks
 import vMdx from '@vinxi/plugin-mdx';
 
@@ -15,7 +14,6 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [
-			tscConfigPaths(),
 			mdx.withImports({})({
 				jsx: true,
 				jsxImportSource: 'solid-js',
