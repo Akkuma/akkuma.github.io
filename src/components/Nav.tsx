@@ -1,37 +1,30 @@
-import { A, useLocation } from "@solidjs/router";
+import { A, useMatch } from '@solidjs/router';
 
 export default function Nav() {
-  const location = useLocation();
+	return (
+		<nav class="flex items-center justify-between py-10 print:hidden">
+			<A class="flex items-center justify-between gap-4" href="/">
+				<span class="text-lg sm:text-2xl font-semibold sm:block font-title">Greg in Codeland</span>
+			</A>
+			<ul class="flex items-center gap-3 leading-5 sm:gap-6">
+				<NavLink href="" text="Home" />
+				<NavLink href="resume" />
+				<NavLink href="about" />
+				<NavLink href="blog" />
+			</ul>
+		</nav>
+	);
+}
 
-  const active = (path: string) =>
-    path == location.pathname
-      ? "border-sky-600"
-      : "border-transparent hover:border-sky-600";
-  return (
-    <nav class="flex items-center justify-between py-10 print:hidden">
-      <A class="flex items-center justify-between gap-4" href="/">
-        <img
-          class="rounded-full"
-          src="//gravatar.com/avatar/e542df18658a4102990d524935118de0ccc750c5a0da8a1ced6c3176cf831cd4?s=45"
-        />
-        <span class="hidden text-2xl font-semibold sm:block">Round 1</span>
-      </A>
-      <ul class="flex items-center gap-4 leading-5 sm:gap-6">
-        <li class={`border-b-2 ${active("/")}`}>
-          <A
-            class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
-            href="/"
-          >
-            Home
-          </A>
-        </li>
-        <li class={`border-b-2 ${active("/resume")}`}>
-          <A href="/resume">Resume</A>
-        </li>
-        <li class={`border-b-2 ${active("/about")}`}>
-          <A href="/about">About</A>
-        </li>
-      </ul>
-    </nav>
-  );
+function NavLink({ href, text = href }: { href: string; text?: string }) {
+	const match = useMatch(() => href);
+	const locationClasses = () => (match() ? 'border-accent' : 'border-transparent hover:border-accent');
+
+	return (
+		<li class={`border-b-2 cursor-pointer ${locationClasses()}`}>
+			<A href={`/${href}`} class="capitalize">
+				{text}
+			</A>
+		</li>
+	);
 }

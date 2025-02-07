@@ -4,22 +4,45 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "fmt": "biome check --changed --write --no-errors-on-unmatched .",
+    "fmt:force": "biome check --write --no-errors-on-unmatched .",
+    "fmt:check": "biome ci --changed --no-errors-on-unmatched .",
+    "pdf": "node ./scripts/pdf.js"
   },
   "dependencies": {
-    "@solidjs/router": "^0.13.1",
-    "@solidjs/start": "^1.0.0-rc.0",
+    "@solid-primitives/transition-group": "^1.1.0",
+    "@solidjs/router": "^0.15.0",
+    "@solidjs/start": "^1.0.11",
+    "@unlazy/solid": "^0.12.1",
+    "@vinxi/plugin-mdx": "^3.7.2",
     "autoprefixer": "^10.4.14",
+    "motion": "^12.0.6",
     "postcss": "^8.4.26",
-    "solid-js": "^1.8.16",
+    "solid-js": "^1.9.4",
+    "solid-transition-group": "^0.2.3",
     "tailwindcss": "^3.3.3",
-    "vinxi": "^0.3.10"
+    "thumbhash": "^0.1.1",
+    "vinxi": "^0.5.1"
   },
   "engines": {
     "node": ">=18"
   },
   "devDependencies": {
     "@anuragroy/tailwindcss-animate": "^1.0.6",
-    "postcss-nesting": "^12.1.1"
-  }
+    "@biomejs/biome": "1.9.4",
+    "@kurone-kito/jsonresume-types": "^0.4.0",
+    "playwright": "^1.50.1",
+    "postcss-nesting": "^12.1.1",
+    "solid-mdx": "^0.0.7",
+    "type-fest": "^4.33.0",
+    "typescript": "^5.7.3"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "patchedDependencies": {
+    "solid-transition-group@0.2.3": "patches/solid-transition-group@0.2.3.patch"
+  },
+  "packageManager": "bun@1.1.45"
 }

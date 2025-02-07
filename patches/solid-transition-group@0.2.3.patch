@@ -1,0 +1,17 @@
+diff --git a/package.json b/package.json
+index a7ceedf3e5e1bc6b9977bafe6e3c98ed424ee1f8..ebcc6b48d34eaa247bc304df8befb8ea60eac913 100644
+--- a/package.json
++++ b/package.json
+@@ -12,9 +12,11 @@
+   "sideEffects": false,
+   "private": false,
+   "type": "module",
+-  "main": "dist/index.cjs",
+   "module": "dist/index.js",
+   "types": "dist/index.d.ts",
++  "exports": {
++    ".": "./dist/index.js"
++  },
+   "files": [
+     "dist"
+   ],

@@ -2,6 +2,208 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: "Space Grotesk", sans-serif;
+/* Generated with https://github.com/pixel-point/fontpie */
+@font-face {
+	font-family: "Arima Fallback";
+	font-style: normal;
+	font-weight: 200;
+	src: local("Arial");
+	ascent-override: 107.06%;
+	descent-override: 55.87%;
+	line-gap-override: 0.00%;
+	size-adjust: 100.22%;
+}
+
+@font-face {
+	font-family: "Arima Fallback";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Arial");
+	ascent-override: 105.73%;
+	descent-override: 55.18%;
+	line-gap-override: 0.00%;
+	size-adjust: 101.49%;
+}
+
+@font-face {
+	font-family: "Arima Fallback";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Arial");
+	ascent-override: 105.33%;
+	descent-override: 54.97%;
+	line-gap-override: 0.00%;
+	size-adjust: 101.88%;
+}
+
+@font-face {
+	font-family: "Arima Fallback";
+	font-style: normal;
+	font-weight: 600;
+	src: local("Arial Bold");
+	ascent-override: 113.02%;
+	descent-override: 58.99%;
+	line-gap-override: 0.00%;
+	size-adjust: 94.94%;
+}
+
+@font-face {
+	font-family: "Kreon Fallback";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Arial");
+	ascent-override: 109.29%;
+	descent-override: 32.09%;
+	line-gap-override: 0.00%;
+	size-adjust: 89.12%;
+}
+
+@font-face {
+	font-family: "Kreon Fallback";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Arial");
+	ascent-override: 105.72%;
+	descent-override: 31.04%;
+	line-gap-override: 0.00%;
+	size-adjust: 92.13%;
+}
+
+@font-face {
+	font-family: "Alegreya Fallback";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Arial");
+	ascent-override: 104.72%;
+	descent-override: 34.91%;
+	line-gap-override: 0.00%;
+	size-adjust: 85.94%;
+}
+
+@font-face {
+	font-family: "Alegreya Fallback";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Arial");
+	ascent-override: 103.05%;
+	descent-override: 34.35%;
+	line-gap-override: 0.00%;
+	size-adjust: 87.34%;
+}
+
+@font-face {
+	font-family: "Alegreya Fallback";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Arial");
+	ascent-override: 101.80%;
+	descent-override: 33.93%;
+	line-gap-override: 0.00%;
+	size-adjust: 88.41%;
+}
+
+@font-face {
+	font-family: "Alegreya Fallback";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Arial Bold");
+	ascent-override: 108.40%;
+	descent-override: 36.13%;
+	line-gap-override: 0.00%;
+	size-adjust: 83.03%;
+}
+
+@layer base {
+	:root {
+		--title-family: "Arima", "Arima Fallback";
+		--subheader-family: "Kreon", "Kreon Fallback";
+		/*
+    --primary-50: 97.31% 0.008 357.8;
+    --primary-100: 92.78% 0.02 357.63;
+    --primary-200: 84.69% 0.042 358.94;
+    --primary-300: 75.94% 0.062 0.17;
+    --primary-400: 67.42% 0.079 1.52;
+    --primary-500: 58.87% 0.092 2.51;
+    --primary-600: 51.43% 0.077 1.69;
+    --primary-700: 43.51% 0.048 1.95;
+    --primary-800: 34.7% 0.027 0.21;
+    --primary-900: 26.48% 0.011 358.74;
+    --primary-950: 21.45% 0.002 17.28;
+    */
+
+		/** tints.dev **/
+		--primary-50: 98.02% 0.009 352.35;
+		--primary-100: 95.11% 0.023 353.14;
+		--primary-200: 90.23% 0.046 351.69;
+		--primary-300: 84.48% 0.073 353.14;
+		--primary-400: 78.21% 0.104 354.45;
+		--primary-500: 69.54% 0.148 355.96;
+		--primary-600: 64.29% 0.181 358.75;
+		--primary-700: 59.08% 0.215 3.45;
+		--primary-800: 49.83% 0.182 3.84;
+		--primary-900: 38.9% 0.141 3.27;
+		--primary-950: 22.62% 0.076 0.79;
+		--primary-1000: 11.02% 0.0441 12.3;
+
+		/* hsl(345, 48, 95); Real base */
+		--background: var(--primary-50);
+		/*--foreground: 244 10% 18%;*/
+		--foreground: var(--primary-950);
+		--deemphasised: var(--primary-900);
+
+		--card-background: var(--primary-200);
+		--card-foreground: var(--primary-950);
+
+		--link: var(--primary-800);
+
+		--secondary: 174 68% 30%;
+		/*
+    */
+		--secondary-invert: 172 44% 48%;
+
+		/*    --secondary-invert: 172.1 48.1% 69%;*/
+
+		--border: 174 68% 30%;
+
+		--accent: var(--primary-600);
+		--a: oklch(98.02% 0.009 352.35);
+	}
+
+	.dark {
+		/* OG --background: 244 10% 18%; */
+		/*--background: 244 10% 38%;
+    --foreground: 345 48% 97%;*/
+
+		--background: var(--primary-1000);
+		--foreground: var(--primary-100);
+		--deemphasised: var(--primary-200);
+
+		--card-background: var(--primary-900);
+		--card-foreground: var(--primary-100);
+
+		--secondary: 172 44% 48%;
+		--secondary-invert: 172.3 47.3% 29%;
+		--t: #188176; /* 45B0A2 */
+		--border: 172 44% 48%;
+
+		--accent: var(--primary-500);
+		--link: var(--primary-500);
+	}
+
+	:root {
+		font-family: "Alegreya Sans", "Alegreya Fallback", sans-serif;
+		background-color: oklch(var(--background));
+		color: oklch(var(--foreground));
+	}
+}
+
+h1 {
+	font-family: var(--title-family);
+}
+
+h2,
+h3,
+h4,
+h5 {
+	font-family: var(--subheader-family);
 }

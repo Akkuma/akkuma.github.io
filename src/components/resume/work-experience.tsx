@@ -1,0 +1,26 @@
+import { For, type JSX } from "solid-js";
+import { Section } from "./section.jsx";
+import { Job } from "./job.jsx";
+import type { ResumeSchema } from "@kurone-kito/jsonresume-types";
+
+type Job = NonNullable<ResumeSchema['work']>[number] 
+interface ResumeWork extends Omit<Job, 'highlights'> {
+  name: string;
+  position: string;
+  url: `https://${string}`;
+  logo?: string;
+  keywords: readonly string[]
+  startDate: string;
+  highlights: JSX.Element[];
+}
+export function WorkExperience(props: { work: readonly ResumeWork[] }) {
+  	return <Section class="section">
+				<Section.Title>Work Experience</Section.Title>
+
+				<section id="work">
+					<For each={props.work}>
+						{(job) => <Job {...job} company={job.name} companyHref={job.url} companyLogoSrc={job.logo} />}
+					</For>
+				</section>
+			</Section>
+}
