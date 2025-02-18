@@ -1,0 +1,179 @@
+/** Easing's courtesy of https://easingwizard.com/ */
+#theme-toggle {
+	.sun {
+		view-transition-name: sun;
+	}
+
+	.moon {
+		view-transition-name: moon;
+	}
+}
+
+/** Animations are largely the same between view transition and manual transition */
+:root[data-theme="light"] {
+	.moon.s-exit-active {
+		animation: moon_exit 1.75s
+			linear(
+				0,
+				-0.008 11%,
+				-0.025 14.6%,
+				-0.054 17.9%,
+				-0.152 24.1%,
+				-0.408 35%,
+				-0.439 37.5%,
+				-0.436 39.6%,
+				-0.405 41.3%,
+				-0.35 42.8%,
+				-0.156 45.6%,
+				0.153 48.1%,
+				1.05 53.4%,
+				1.284 56%,
+				1.413 59%,
+				1.441 61.5%,
+				1.418 64.4%,
+				1.146 76.2%,
+				1.047 82.7%,
+				1.023 85.8%,
+				1.008 89.3%,
+				1
+			)
+			forwards, fade 2s cubic-bezier(0.11, 0, 0.5, 0) forwards;
+	}
+
+	.sun.s-enter-active {
+		transform: translateY(100vh);
+		animation: sun_rise 1s ease-out 800ms forwards;
+	}
+}
+
+:root[data-theme="dark"] {
+	.moon.s-enter-active {
+		transform: translateY(-80px);
+		animation: moon_enter 1s ease-out forwards 800ms;
+	}
+
+	.sun.s-exit-active {
+		@apply translate-y-2;
+		animation: sun_exit 1.1s
+			linear(
+				0,
+				-0.009 14.5%,
+				-0.062 38.4%,
+				-0.071 47.5%,
+				-0.065 52.7%,
+				-0.05 57.5%,
+				0.011 66.1%,
+				0.07 71%,
+				0.145 75.6%,
+				0.351 84.3%,
+				0.635 92.4%,
+				1
+			)
+			forwards, fade 2s cubic-bezier(0.11, 0, 0.5, 0) forwards;
+	}
+}
+
+:root[data-theme="light"]::view-transition-old(moon),
+:root[data-theme="light"]::view-transition-new(moon) {
+	mix-blend-mode: normal;
+	animation: moon_exit 1.75s
+		linear(
+			0,
+			-0.008 11%,
+			-0.025 14.6%,
+			-0.054 17.9%,
+			-0.152 24.1%,
+			-0.408 35%,
+			-0.439 37.5%,
+			-0.436 39.6%,
+			-0.405 41.3%,
+			-0.35 42.8%,
+			-0.156 45.6%,
+			0.153 48.1%,
+			1.05 53.4%,
+			1.284 56%,
+			1.413 59%,
+			1.441 61.5%,
+			1.418 64.4%,
+			1.146 76.2%,
+			1.047 82.7%,
+			1.023 85.8%,
+			1.008 89.3%,
+			1
+		)
+		forwards, fade 2s cubic-bezier(0.11, 0, 0.5, 0) forwards;
+}
+
+:root[data-theme="light"]::view-transition-old(sun),
+:root[data-theme="light"]::view-transition-new(sun) {
+	opacity: 1;
+	mix-blend-mode: normal;
+	transform: translateY(100vh);
+	animation: sun_rise 1s ease-out forwards 800ms;
+}
+
+@keyframes moon_exit {
+	to {
+		transform: translateY(-80px);
+	}
+}
+
+@keyframes fade {
+	from {
+		filter: blur(0);
+	}
+	to {
+		filter: blur(4px);
+	}
+}
+
+@keyframes sun_rise {
+	to {
+		transform: translateY(0);
+	}
+}
+
+:root[data-theme="dark"]::view-transition-new(moon) {
+	transform: translateY(-80px);
+	animation: moon_enter 1s ease-out forwards 800ms;
+}
+
+:root[data-theme="dark"]::view-transition-old(sun) {
+	opacity: 1;
+	mix-blend-mode: normal;
+	transform: translateY(0);
+	animation: sun_exit 1.1s
+		linear(
+			0,
+			-0.009 14.5%,
+			-0.062 38.4%,
+			-0.071 47.5%,
+			-0.065 52.7%,
+			-0.05 57.5%,
+			0.011 66.1%,
+			0.07 71%,
+			0.145 75.6%,
+			0.351 84.3%,
+			0.635 92.4%,
+			1
+		)
+		forwards, fade 2s cubic-bezier(0.11, 0, 0.5, 0) forwards;
+}
+
+:root[data-theme="dark"]::view-transition-new(sun) {
+	display: none;
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+@keyframes sun_exit {
+	to {
+		transform: translateY(100vh);
+	}
+}
+
+@keyframes moon_enter {
+	to {
+		transform: translateY(0);
+	}
+}

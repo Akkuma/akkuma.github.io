@@ -1,6 +1,6 @@
 import { For, Show } from 'solid-js';
-import { usePosts } from '#/hook/use-posts.js';
 import { Box } from '#/components/box.jsx';
+import { usePosts } from '#/hook/use-posts.js';
 
 export default function BlogIndex() {
 	const posts = usePosts();
@@ -20,5 +20,5 @@ export default function BlogIndex() {
 				</For>
 			</ol>
 		</Show>*/
-	return <Box as="p">Coming soon!</Box>
+	return <Box as="p">Coming soon!</Box>;
 }

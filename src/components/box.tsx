@@ -12,7 +12,10 @@ export function Box(props: {
 	as?: keyof JSX.HTMLElementTags;
 }) {
 	return (
-		<Dynamic component={props.as ?? 'div'} class={`${variants[props.variant ?? 'default']} ${props.class ?? ''}`}>
+		<Dynamic
+			component={props.as ?? 'div'}
+			class={`${variants[props.variant ?? 'default']} ${props.class ?? ''}`}
+		>
 			{props.children}
 		</Dynamic>
 	);

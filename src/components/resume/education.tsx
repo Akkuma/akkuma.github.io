@@ -1,8 +1,14 @@
 import type { Iso8601 } from '@kurone-kito/jsonresume-types';
 import { Section } from './section.jsx';
 
-const dtf = new Intl.DateTimeFormat('en-US', { year: 'numeric' })
-export function Education(props: { startDate: Iso8601; endDate: Iso8601; studyType: string; area: string; institution: string; }) {
+const dtf = new Intl.DateTimeFormat('en-US', { year: 'numeric' });
+export function Education(props: {
+	startDate: Iso8601;
+	endDate: Iso8601;
+	studyType: string;
+	area: string;
+	institution: string;
+}) {
 	return (
 		<Section class="section">
 			<Section.Title>Education</Section.Title>

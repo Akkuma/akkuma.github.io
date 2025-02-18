@@ -4,7 +4,7 @@ import { StartServer, createHandler } from '@solidjs/start/server';
 export default createHandler(() => (
 	<StartServer
 		document={({ assets, children, scripts }) => (
-			<html lang="en">
+			<html lang="en" data-style="vertical" class="group/root">
 				<head>
 					<meta charset="utf-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,12 +67,12 @@ export default createHandler(() => (
 					/>*/}
 					{assets}
 					<script type="text/javascript">
-						document.documentElement.classList.toggle( 'dark', localStorage.theme === 'dark' || (!('theme' in
-						localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) )
+						document.documentElement.dataset.theme =localStorage.theme === 'dark' || (!('theme' in
+						localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
 					</script>
 				</head>
 				<body class="pl-[calc(100vw-100%)] antialiased">
-					<div id="app" class="min-h-[100vh] print:max-w-full">
+					<div id="app" class={`min-h-[100vh] print:max-w-full`}>
 						{children}
 					</div>
 					{scripts}

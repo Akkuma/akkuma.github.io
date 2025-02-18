@@ -5,7 +5,7 @@ import { Link } from '../link.jsx';
 import { Keywords } from './keywords.jsx';
 
 const dtf = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' });
-const code = /`\w+.?\w+`/gm
+const code = /`\w+.?\w+`/gm;
 interface JobProps {
 	position: string;
 	company: string;
@@ -44,7 +44,7 @@ export function Job(props: JobProps) {
 					</Link>
 				</span>
 			</div>
-			<Keywords keywords={props.keywords.map(_ => _.toLowerCase())} />
+			<Keywords keywords={props.keywords.map((_) => _.toLowerCase())} />
 			<Show when={props.summary}>
 				<div class="summary">
 					<p>{props.summary}</p>
@@ -54,7 +54,9 @@ export function Job(props: JobProps) {
 				<For each={props.highlights}>
 					{(item) => (
 						<li>
-							<p><Highlight text={item} /></p>
+							<p>
+								<Highlight text={item} />
+							</p>
 						</li>
 					)}
 				</For>
@@ -64,18 +66,18 @@ export function Job(props: JobProps) {
 }
 
 function Highlight(props: { text: string }) {
-	if (props.text.match(code) === null) return props.text
-	const codes = props.text.matchAll(code)
+	if (props.text.match(code) === null) return props.text;
+	const codes = props.text.matchAll(code);
 
 	let start = 0;
-	const content = []
+	const content = [];
 	for (const match of codes) {
-		content.push(props.text.slice(start, match.index))
-		const codeMatch = match[0]
-		content.push(<code>{codeMatch.replaceAll('`', '')}</code>)
+		content.push(props.text.slice(start, match.index));
+		const codeMatch = match[0];
+		content.push(<code>{codeMatch.replaceAll('`', '')}</code>);
 
-		start = codeMatch.length + match.index
+		start = codeMatch.length + match.index;
 	}
 
-	return content
+	return content;
 }

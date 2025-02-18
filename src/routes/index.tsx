@@ -17,7 +17,9 @@ export default function Home() {
 					decoding="async"
 				/>
 				<header class="w-full md:w-1/2 text-left">
-					<h1 class="max-6-xs text-6xl text-accent font-extralight m-0 font-title">Join me for tea</h1>
+					<h1 class="max-6-xs text-6xl text-accent font-extralight m-0 font-title transition-colors duration-200 delay-700">
+						Join me for tea
+					</h1>
 					<p class="mt-8 text-xl font-light font-subheader">
 						<span class="whitespace-pre-wrap">
 							Full stack engineer & leader for over 17 years that can help you brew a great{' '}
