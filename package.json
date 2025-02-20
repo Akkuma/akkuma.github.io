@@ -8,7 +8,8 @@
     "fmt": "biome check --changed --write --no-errors-on-unmatched .",
     "fmt:force": "biome check --write --no-errors-on-unmatched .",
     "fmt:check": "biome ci --changed --no-errors-on-unmatched .",
-    "pdf": "node ./scripts/pdf.js"
+    "pdf": "bun ./scripts/pdf.js",
+    "mdx": "bun ./scripts/mdx.ts"
   },
   "imports": {
     "#/*": "./src/*"
@@ -37,6 +38,7 @@
     "@anuragroy/tailwindcss-animate": "^1.0.6",
     "@biomejs/biome": "1.9.4",
     "@kurone-kito/jsonresume-types": "^0.4.0",
+    "@mdx-js/mdx": "^3.1.0",
     "playwright": "^1.50.1",
     "postcss-nesting": "^12.1.1",
     "solid-mdx": "^0.0.7",
