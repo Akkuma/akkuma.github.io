@@ -9,7 +9,7 @@ export default function Nav() {
 			<A class="flex items-center justify-between gap-4" href="/">
 				<span class="text-lg sm:text-2xl font-semibold sm:block font-title">Greg in Codeland</span>
 			</A>
-			<div class="flex items-center gap-2">
+			<div class="flex items-center gap-4">
 				<ul class="flex items-center gap-3 leading-5 sm:gap-6">
 					<NavLink href="" text="Home" />
 					<NavLink href="resume" />
