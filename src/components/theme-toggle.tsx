@@ -6,16 +6,16 @@ import { type Theme, setTheme, theme } from '#/state/theme.js';
 
 import './theme-toggle.css';
 
-const supportsViewTransition: boolean = typeof document === 'undefined' ? true : !!document.startViewTransition;
+const supportsViewTransition: boolean =
+	typeof document === 'undefined' ? true : !!document.startViewTransition;
 const toggleTheme = () =>
 	(document.documentElement.dataset.theme =
 		document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
 
 const containerClassesToToggle = ['overflow-hidden', 'group-hover:border-accent'];
 export function ThemeToggle() {
-	console.log('Theme is', theme())
 	return (
-		<div id="theme-toggle" class="flex items-center pl-6 ml-4 cursor-pointer group text-foreground">
+		<div id="theme-toggle" class="flex items-center cursor-pointer group text-foreground">
 			<div
 				onClick={(el) => {
 					setTheme((prevTheme: Theme) => (prevTheme === 'dark' ? 'light' : 'dark'));
