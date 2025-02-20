@@ -10,12 +10,12 @@ export default function App() {
 		<Router
 			base={import.meta.env.SERVER_BASE_URL}
 			root={(props) => (
-				<div id="app" class={`min-h-[100vh] print:max-w-full`}>
+				<>
 					<Box as="header" class="h-max-w-5xl sm:pl-6 sm:pr-4">
 						<Nav />
 					</Box>
 					<Suspense>{props.children}</Suspense>
-				</div>
+				</>
 			)}
 		>
 			<FileRoutes />
