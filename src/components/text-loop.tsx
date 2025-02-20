@@ -1,5 +1,5 @@
 import { animate } from 'motion';
-import { type JSX, Show, createSignal, onCleanup } from 'solid-js';
+import { type JSX, Show, createMemo, createSignal, onCleanup } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 
 export type TextLoopProps = {
@@ -19,8 +19,22 @@ export function TextLoop(props: TextLoopProps) {
 
 	onCleanup(() => clearInterval(interval));
 
+	const minChars = createMemo(
+		() =>
+			props.text.reduce<number>((acc, el) => {
+				if (typeof el === 'string') return acc > el.length ? acc : el.length;
+
+				return acc;
+			}, 0),
+		0,
+	);
+
 	return (
-		<span class="relative inline-flex flex-col-reverse whitespace-nowrap" role="marquee">
+		<span
+			class="relative inline-flex flex-col-reverse whitespace-nowrap transition-colors duration-200 delay-700"
+			role="marquee"
+			style={{ 'min-width': `${minChars()}ch` }}
+		>
 			<span class="invisible" aria-live="off">
 				{props.text[index()]}
 			</span>
