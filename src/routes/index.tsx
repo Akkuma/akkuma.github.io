@@ -1,18 +1,18 @@
 import { A, useSearchParams } from '@solidjs/router';
-import { Show } from 'solid-js';
+import { type JSX, Show } from 'solid-js';
 
-import { Box } from '#/components/box.jsx';
-import { TextLoop } from '#/components/text-loop.jsx';
+import { Box } from '#/components/box.tsx';
+import { TextLoop } from '#/components/text-loop.tsx';
 
 export default function Home() {
 	return (
-		<main class="mx-auto">
-			<Box class="flex gap-8 mb-32">
+		<main class="mx-auto mt-12">
+			<Box class="flex gap-8 mb-16">
 				{/*thumbhash="pyiCDAIcOHjXGfh7jKr6CJxxlAiYeFd+Bg"*/}
 				<img
 					src="/greg_in_frame_alt.webp"
 					class="hidden md:block w-1/2 max-w-[328px] max-h-[367px] -mt-2"
-					width="328px"
+					width="328"
 					height="367"
 					decoding="async"
 				/>
@@ -31,13 +31,8 @@ export default function Home() {
 				</header>
 			</Box>
 
-			<Box as="section" class="relative h-[100vh]">
-				<div class="absolute inset-0 [clip-path:polygon(0%_3rem,_100%_0%,_100%_calc(100%_-_1.5rem),_0%_calc(100%_-_1.5rem))] bg-background" />
-				<h2 class="relative after:h-1 after:absolute after:inset-0 after:bg-gradient-to-r after:from-secondary after:to-transparent after:border-0 after:rounded-full after:translate-y-6">
-					Explore Brews
-				</h2>
-			</Box>
-			<QuickBrews />
+			<Section title="Spilling the Tea"></Section>
+			<Section title="Explore Brews"></Section>
 		</main>
 	);
 }
@@ -106,4 +101,18 @@ function FrontendRecipe() {
 
 function BackendRecipe() {
 	return <div>Backend Recipe</div>;
+}
+
+function Section(props: {
+	children: JSX.Element | JSX.Element[];
+	title: string;
+}) {
+	return (
+		<Box as="section" class="mb-8">
+			<h2 class="relative text-lg after:h-1 after:absolute after:inset-0 after:bg-gradient-to-r after:from-secondary after:to-transparent after:border-0 after:rounded-full after:translate-y-6">
+				{props.title}
+			</h2>
+			{props.children}
+		</Box>
+	);
 }
