@@ -14,9 +14,9 @@ const [theme, setThemeOG] = createSignal<Theme>(defaultTheme);
 
 export const setTheme = (fn: (prevTheme: Theme) => Theme) => {
 	setThemeOG((theme) => {
-		const newTheme = fn(theme)
+		const newTheme = fn(theme);
 		localStorage.setItem('theme', newTheme);
-		return newTheme
+		return newTheme;
 	});
 };
 
