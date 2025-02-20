@@ -27,6 +27,7 @@
 		"types": ["vite/client"],
 		"moduleResolution": "bundler",
 		"resolvePackageJsonImports": true,
+		"allowImportingTsExtensions": true,
 		"paths": {
 			"#/*": ["./src/*"]
 		}
