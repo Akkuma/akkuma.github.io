@@ -20,10 +20,13 @@ export function ThemeToggle() {
 				onClick={(el) => {
 					setTheme((prevTheme: Theme) => (prevTheme === 'dark' ? 'light' : 'dark'));
 
+					el.currentTarget.classList.remove(...containerClassesToToggle);
+
 					if (supportsViewTransition) {
-						document.startViewTransition(toggleTheme);
+						document.startViewTransition(toggleTheme).finished.then(() => {
+							el.currentTarget.classList.add(...containerClassesToToggle)
+						});
 					} else {
-						el.currentTarget.classList.remove(...containerClassesToToggle);
 						toggleTheme();
 					}
 				}}
