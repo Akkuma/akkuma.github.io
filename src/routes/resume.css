@@ -659,7 +659,7 @@
 }
 
 @media print {
-	:root {
+	#app {
 		background-color: white;
 	}
 }
