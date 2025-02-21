@@ -11,7 +11,7 @@ import playwright from 'playwright';
 	} catch (e) {
 		console.error(e);
 	}
-	// await page.emulateMedia({ media: "screen" });
+	await page.emulateMedia({ media: "print" });
 	await page.pdf({
 		path: `./public/gregory-waxman-resume.pdf`,
 		format: 'A4',
