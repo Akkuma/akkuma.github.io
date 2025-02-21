@@ -16,15 +16,15 @@ import { LinkedIn } from '../icons/linkedin.jsx';
 
 export default function Resume() {
 	onMount(() => {
-		let shouldAddDarkMode = false;
+		let wasDarkMode = false;
 		const beforePrint = () => {
-			shouldAddDarkMode = document.documentElement.classList.contains('dark');
-			document.documentElement.classList.remove('dark');
+			wasDarkMode = document.documentElement.dataset.theme === 'dark'
+			document.documentElement.dataset.theme = 'light'
 		};
 		const afterPrint = () => {
-			if (!shouldAddDarkMode) return;
+			if (!wasDarkMode) return
 
-			document.documentElement.classList.add('dark');
+			document.documentElement.dataset.theme = 'dark'
 		};
 
 		window.addEventListener('beforeprint', beforePrint);
@@ -66,7 +66,7 @@ export default function Resume() {
 							<span class="font-normal">PDF</span>
 						</Link>
 					</div>
-					<h2 class="text-2xl text-foreground/80 font-light print:text-black print:text-xl">
+					<h2 class="text-2xl text-foreground/80 font-light print:text-black print:text-xl transition-colors duration-700 delay-300 ease-in">
 						Leader &amp; full stack engineer with over 17 years of professional experience
 					</h2>
 				</div>
