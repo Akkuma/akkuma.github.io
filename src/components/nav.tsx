@@ -5,7 +5,7 @@ import { ThemeToggleFallback } from './theme-toggle-fallback.jsx';
 const ThemeToggle = clientOnly(() => import('./theme-toggle.jsx'));
 export default function Nav() {
 	return (
-		<nav class="flex items-center justify-between py-10 print:hidden">
+		<nav class="flex items-center justify-between py-4 sm:py-8 print:hidden">
 			<A class="flex items-center justify-between gap-4" href="/">
 				<span class="text-lg sm:text-2xl font-semibold sm:block font-title">Greg in Codeland</span>
 			</A>
