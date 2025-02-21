@@ -14,7 +14,7 @@ export function Skills(props: { skills: ResumeSkill[] }) {
 			<section id="skills">
 				<For each={props.skills}>
 					{(skill) => (
-						<div class="item">
+						<div class="item w-1/2 sm:w-1/3">
 							<h3 class="name">{skill.name}</h3>
 							<Keywords keywords={skill.keywords} />
 						</div>

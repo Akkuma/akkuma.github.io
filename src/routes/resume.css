@@ -596,7 +596,6 @@
 			font-weight: 600;
 		}
 		#skills .item {
-			width: calc(100% / 3);
 			padding: 0;
 		}
 		.highlights {
@@ -645,13 +644,13 @@
 #languages .item,
 #skills .item,
 #interests .item {
-	width: 15em;
 	padding: 0 1rem 0.5em 0;
 	border-bottom: none;
 }
 
-#skills .item {
-	width: 33%;
+#languages .item,
+#interests .item {
+	width: 15em;
 }
 
 #skills .item .keywords {
