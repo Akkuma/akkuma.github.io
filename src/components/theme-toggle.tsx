@@ -17,14 +17,15 @@ export function ThemeToggle() {
 	return (
 		<div id="theme-toggle" class="flex items-center cursor-pointer group text-foreground">
 			<div
-				onClick={(el) => {
+				onPointerUp={(el) => {
 					setTheme((prevTheme: Theme) => (prevTheme === 'dark' ? 'light' : 'dark'));
 
-					el.currentTarget.classList.remove(...containerClassesToToggle);
+					const div = el.currentTarget;
+					div.classList.remove(...containerClassesToToggle);
 
 					if (supportsViewTransition) {
 						document.startViewTransition(toggleTheme).finished.then(() => {
-							el.currentTarget.classList.add(...containerClassesToToggle)
+							div.classList.add(...containerClassesToToggle)
 						});
 					} else {
 						toggleTheme();
