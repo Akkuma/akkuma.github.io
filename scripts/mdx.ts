@@ -1,6 +1,8 @@
 import { readdirSync, writeFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
+
 import { evaluate } from '@mdx-js/mdx';
+import serialize from 'serialize-javascript'
 import { Fragment, jsx, jsxs } from 'solid-js/h/jsx-runtime';
 
 const opts = { Fragment: Fragment, jsx: jsx, jsxs: jsxs };
@@ -28,6 +30,8 @@ const evalProms = fileContents.map(async ({ content, file }) => {
 const evals = await Promise.all(evalProms);
 evals.sort((a, b) => (a.created < b.created ? 1 : -1));
 
+//* Custom serializer, skipping on this in favor of a lib to not have to keep rolling my own
+/*
 const generated = evals.map(({ file, ...rest }) => {
 	let strBuild = `{ file: '${file.split('.')[0]}', `;
 	for (const [key, val] of Object.entries(rest)) {
@@ -43,8 +47,9 @@ const generated = evals.map(({ file, ...rest }) => {
 
 	return `${strBuild}}`;
 });
+*/
 
 writeFileSync(
 	'./src/_generated/posts.ts',
-	`export const postsMetadatas = [ ${generated.toString()} ] as const`,
+	`export const postsMetadatas = ${serialize(evals, { unsafe: true, /* Only need to use for debugging space: '\t' */ })} as const`,
 );
