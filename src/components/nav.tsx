@@ -28,7 +28,7 @@ function NavLink({ href, text = href }: { href: string; text?: string }) {
 
 	return (
 		<li class={`border-b-2 cursor-pointer ${locationClasses()}`}>
-			<A href={`/${href}`} class="capitalize">
+			<A href={`/${href}`} class="capitalize" preload>
 				{text}
 			</A>
 		</li>
