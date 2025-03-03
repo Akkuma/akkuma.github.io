@@ -25,7 +25,7 @@ export function ThemeToggle() {
 
 					if (supportsViewTransition) {
 						document.startViewTransition(toggleTheme).finished.then(() => {
-							div.classList.add(...containerClassesToToggle)
+							div.classList.add(...containerClassesToToggle);
 						});
 					} else {
 						toggleTheme();

@@ -18,13 +18,13 @@ export default function Resume() {
 	onMount(() => {
 		let wasDarkMode = false;
 		const beforePrint = () => {
-			wasDarkMode = document.documentElement.dataset.theme === 'dark'
-			document.documentElement.dataset.theme = 'light'
+			wasDarkMode = document.documentElement.dataset.theme === 'dark';
+			document.documentElement.dataset.theme = 'light';
 		};
 		const afterPrint = () => {
-			if (!wasDarkMode) return
+			if (!wasDarkMode) return;
 
-			document.documentElement.dataset.theme = 'dark'
+			document.documentElement.dataset.theme = 'dark';
 		};
 
 		window.addEventListener('beforeprint', beforePrint);

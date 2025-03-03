@@ -2,7 +2,7 @@ import { readdirSync, writeFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 
 import { evaluate } from '@mdx-js/mdx';
-import serialize from 'serialize-javascript'
+import serialize from 'serialize-javascript';
 import { Fragment, jsx, jsxs } from 'solid-js/h/jsx-runtime';
 
 const opts = { Fragment: Fragment, jsx: jsx, jsxs: jsxs };
@@ -51,5 +51,5 @@ const generated = evals.map(({ file, ...rest }) => {
 
 writeFileSync(
 	'./src/_generated/posts.ts',
-	`export const postsMetadatas = ${serialize(evals, { unsafe: true, /* Only need to use for debugging space: '\t' */ })} as const`,
+	`export const postsMetadatas = ${serialize(evals, { unsafe: true /* Only need to use for debugging space: '\t' */ })} as const`,
 );

@@ -24,7 +24,9 @@ export function Job(props: JobProps) {
 			<header class="flex justify-between">
 				<div>
 					<h3 class="position text-base">{props.position}</h3>
-					<span class="company print:text-black/80 block before:hidden sm:inline sm:before:inline">{props.company}</span>
+					<span class="company print:text-black/80 block before:hidden sm:inline sm:before:inline">
+						{props.company}
+					</span>
 				</div>
 				<div class="date">
 					<span class="startDate">{dtf.format(new Date(props.startDate))}</span>
