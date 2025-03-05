@@ -13,6 +13,13 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		build: {
+      rollupOptions: {
+        external: [
+          /\/fonts\/.*\.woff2/
+        ]
+      }
+    },
 		plugins: [
 			mdx.withImports({})({
 				jsx: true,
