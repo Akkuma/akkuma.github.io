@@ -1,0 +1,27 @@
+.recipe-move {
+	isolation: isolate;
+	z-index: 1;
+	transition: transform 1s;
+}
+
+.recipe-enter-active,
+.recipe-exit-active {
+	transition: opacity 1s, transform 1s;
+}
+
+.recipe-enter-active {
+	opacity: 0;
+	transform: scale(0);
+	z-index: 0;
+}
+
+.recipe-enter-to {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.recipe-exit-to {
+	z-index: 0;
+	opacity: 0;
+	transform: scale(0.01);
+}
