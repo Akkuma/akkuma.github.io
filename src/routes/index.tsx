@@ -1,7 +1,8 @@
 import { A, useSearchParams } from '@solidjs/router';
-import { type JSX, Show } from 'solid-js';
+import { type FlowProps, For, Show } from 'solid-js';
 
 import { Box } from '#/components/box.tsx';
+import { Recipes, categories } from '#/components/recipes.tsx';
 import { TextLoop } from '#/components/text-loop.tsx';
 
 export default function Home() {
@@ -31,88 +32,66 @@ export default function Home() {
 				</header>
 			</Box>
 
-			<Section title="Spilling the Tea"></Section>
-			<Section title="Explore Brews"></Section>
+			<Section>
+				<SectionTitle>Spilling the Tea</SectionTitle>
+			</Section>
+			<Section class="min-h-[calc((12rem*2)+4rem)]">
+				<SectionTitle class="flex justify-between">
+					Explore Brews{' '}
+					<div class="text-lg">
+						<Brews />
+					</div>
+				</SectionTitle>
+				<Recipes />
+			</Section>
 		</main>
 	);
 }
 
-function QuickBrews() {
-	const [searchParams] = useSearchParams();
-	const recipe = () =>
-		(Array.isArray(searchParams.recipe) ? searchParams.recipe[0] : searchParams.recipe) as
-			| keyof typeof recipes
-			| undefined;
-
+function Section(props: FlowProps<{ class?: string }>) {
 	return (
-		<Box as="section" class="mt-12 w-full">
-			<div class="flex gap-4">
-				<div class="border-accent border rounded-xl p-8">
-					<h2 class="mx-auto w-max text-center py-1 px-4 bg-foreground rounded-full border-accent border text-xl text-background -mt-[3.25rem] mb-1.5">
-						Quick Brews
-					</h2>
-					<div class="flex justify-between">
-						<div>
-							<h3>Prep</h3>
-						</div>
-						<div>
-							<h3>Cook</h3>
-						</div>
-						<div>
-							<h3>Total</h3>
-						</div>
-						<div>
-							<h3>Serves</h3>
-						</div>
-					</div>
-					<ul>
-						<li>
-							<A href="/?recipe=frontend">Frontend</A>
-						</li>
-						<li>
-							<A href="/?recipe=backend">Backend</A>
-						</li>
-						<li>
-							<button>Infrastructure as Code</button>
-						</li>
-						<li>
-							<button>Databases</button>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<Show when={recipes[recipe() ?? 'frontend']} keyed>
-						{(comp) => comp()}
-					</Show>
-				</div>
-			</div>
+		<Box as="section" class={`mb-8 ${props.class}`}>
+			{props.children}
 		</Box>
 	);
 }
 
-const recipes = {
-	frontend: FrontendRecipe,
-	backend: BackendRecipe,
-} as const;
-
-function FrontendRecipe() {
-	return <div>Frontend Recipe</div>;
-}
-
-function BackendRecipe() {
-	return <div>Backend Recipe</div>;
-}
-
-function Section(props: {
-	children: JSX.Element | JSX.Element[];
-	title: string;
-}) {
+function SectionTitle(props: FlowProps<{ class?: string }>) {
 	return (
-		<Box as="section" class="mb-8">
-			<h2 class="relative text-lg after:h-1 after:absolute after:inset-0 after:bg-gradient-to-r after:from-secondary after:to-transparent after:border-0 after:rounded-full after:translate-y-6">
-				{props.title}
-			</h2>
+		<h2
+			class={`relative mb-8 text-xl after:h-2 after:mt-2 after:absolute after:inset-0 after:bg-gradient-to-r after:from-secondary after:to-transparent after:border after:border-foreground after:rounded-full after:translate-y-6 after:transition-colors after:duration-200 after:delay-700 ${props.class}`}
+		>
 			{props.children}
-		</Box>
+		</h2>
+	);
+}
+
+function Brews() {
+	const [searchParams] = useSearchParams();
+
+	return (
+		<ul class="flex justify-between gap-4">
+			<For each={categories}>
+				{(brew) => {
+					const current = () => searchParams.recipe === brew || (!searchParams.recipe && brew === 'all');
+					return (
+						<li>
+							<a
+								href={`/?recipe=${brew.toLowerCase()}`}
+								class="capitalize"
+								classList={{
+									'font-bold': current(),
+								}}
+								aria-current={current() ? 'true' : 'false'}
+								preload
+								noScroll
+							>
+								{brew}
+							</a>
+						</li>
+					);
+				}}
+			</For>
+		</ul>
 	);
 }
