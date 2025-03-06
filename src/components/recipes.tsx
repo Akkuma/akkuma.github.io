@@ -8,11 +8,15 @@ import { Solid } from './recipes/solid.tsx';
 import { TypeScript } from './recipes/typescript.tsx';
 
 import './recipes.css';
+import { Elm } from './recipes/elm.tsx';
+import { NodeJs } from './recipes/nodejs.tsx';
+import { Python } from './recipes/python.tsx';
 
 const recipesByCategory = {
-	frontend: [React, Solid, TypeScript],
-	backend: [TypeScript],
-	languages: [CSharp, Elixir, TypeScript],
+	frontend: [React, Solid, Elm],
+	backend: [CSharp, Elixir, 
+		NodeJs, Python, TypeScript],
+	languages: [CSharp, Elixir, Elm, Python, TypeScript],
 	tools: [],
 	styling: [],
 	aws: [],

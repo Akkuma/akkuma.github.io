@@ -7,9 +7,9 @@ export function Elixir() {
 			<Card.Front
 				icon={<ElixirLogo />}
 				name="Elixir"
-				about="An exploration of a wonderful FP language with a truly unique ecosystem."
+				about="A side quest for those brave adventure seekers wanting a wonderful FP language with a truly unique ecosystem."
 			/>
-			<Card.Back icon={<ElixirLogo />} name="Elixir" start="2918" prep="4 years" expertise="Beginner" />
+			<Card.Back icon={<ElixirLogo />} name="Elixir" start="2018" prep="1 year" expertise="Beginner" />
 		</Card>
 	);
 }
