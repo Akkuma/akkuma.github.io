@@ -1,12 +1,9 @@
 import './resume.css';
-import { For, onCleanup, onMount } from 'solid-js';
+import { onCleanup, onMount } from 'solid-js';
 
 import { Link } from '#/components/link.jsx';
 import { Education } from '#/components/resume/education.jsx';
-import { Job } from '#/components/resume/job.jsx';
-import { Keywords } from '#/components/resume/keywords.jsx';
 import { Profile } from '#/components/resume/profile.jsx';
-import { Section } from '#/components/resume/section.jsx';
 import { Skills } from '#/components/resume/skills.jsx';
 import { WorkExperience } from '#/components/resume/work-experience.jsx';
 import { resume } from '#/resume.js';

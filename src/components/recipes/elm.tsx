@@ -1,4 +1,3 @@
-import { ElixirLogo } from '#/icons/logos/elixir-logo.tsx';
 import { ElmLogo } from '#/icons/logos/elm-logo.tsx';
 import { Card } from './card.tsx';
 

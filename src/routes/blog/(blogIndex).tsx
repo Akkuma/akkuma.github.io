@@ -1,4 +1,3 @@
-import { For, Show } from 'solid-js';
 import { Box } from '#/components/box.jsx';
 import { usePosts } from '#/hook/use-posts.js';
 

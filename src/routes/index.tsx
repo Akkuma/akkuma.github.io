@@ -1,5 +1,5 @@
-import { A, useSearchParams } from '@solidjs/router';
-import { type FlowProps, For, Show } from 'solid-js';
+import { useSearchParams } from '@solidjs/router';
+import { type FlowProps, For } from 'solid-js';
 
 import { Box } from '#/components/box.tsx';
 import { Recipes, categories } from '#/components/recipes.tsx';

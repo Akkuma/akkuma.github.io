@@ -5,9 +5,9 @@
     "dev": "vinxi dev",
     "build": "bun mdx && vinxi build",
     "start": "vinxi start",
-    "fmt": "biome check --changed --write --no-errors-on-unmatched .",
-    "fmt:force": "biome check --write --no-errors-on-unmatched .",
-    "fmt:check": "biome ci --changed --no-errors-on-unmatched .",
+    "check": "biome check --changed --write --no-errors-on-unmatched .",
+    "check:force": "biome check --write --no-errors-on-unmatched .",
+    "check:ci": "biome ci --changed --no-errors-on-unmatched .",
     "pdf": "bun ./scripts/pdf.js",
     "mdx": "bun ./scripts/mdx.ts"
   },
