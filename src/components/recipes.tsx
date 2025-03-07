@@ -1,21 +1,23 @@
 import { useSearchParams } from '@solidjs/router';
 import { For } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
+
+import { Bun } from './recipes/bun.tsx';
 import { CSharp } from './recipes/csharp.tsx';
 import { Elixir } from './recipes/elixir.tsx';
+import { Elm } from './recipes/elm.tsx';
+import { Express } from './recipes/express.tsx';
+import { NodeJs } from './recipes/nodejs.tsx';
+import { Python } from './recipes/python.tsx';
 import { React } from './recipes/react.tsx';
 import { Solid } from './recipes/solid.tsx';
 import { TypeScript } from './recipes/typescript.tsx';
 
 import './recipes.css';
-import { Elm } from './recipes/elm.tsx';
-import { NodeJs } from './recipes/nodejs.tsx';
-import { Python } from './recipes/python.tsx';
 
 const recipesByCategory = {
 	frontend: [React, Solid, Elm],
-	backend: [CSharp, Elixir, 
-		NodeJs, Python, TypeScript],
+	backend: [Bun, CSharp, Elixir, Express, NodeJs, Python, TypeScript],
 	languages: [CSharp, Elixir, Elm, Python, TypeScript],
 	tools: [],
 	styling: [],
