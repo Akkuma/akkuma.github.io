@@ -2,7 +2,7 @@ import type { FlowProps, JSX } from 'solid-js';
 
 export function Card(props: FlowProps) {
 	return (
-		<div class="[perspective:1000px] h-48 w-56 group">
+		<div class="[perspective:1000px] h-48 w-60 group">
 			<div class="transition-transform duration-700 h-full w-full shadow-lg rounded-lg group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] group-hover:duration-500 relative">
 				{props.children}
 			</div>
@@ -12,13 +12,11 @@ export function Card(props: FlowProps) {
 
 Card.Front = function CardFront(props: { icon: JSX.Element; name: JSX.Element; about: JSX.Element }) {
 	return (
-		<div class="text-foreground [backface-visibility:hidden] absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg">
-			<div class="flex flex-col justify-start gap-4">
-				<h3 class="flex items-center gap-2 text-lg">
-					{props.icon} {props.name}
-				</h3>
-				<div>{props.about}</div>
-			</div>
+		<div class="text-foreground [backface-visibility:hidden] flex flex-col justify-start gap-4 absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg">
+			<h3 class="flex items-center gap-2 text-lg">
+				{props.icon} {props.name}
+			</h3>
+			<p>{props.about}</p>
 		</div>
 	);
 };
