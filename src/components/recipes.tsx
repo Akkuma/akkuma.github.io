@@ -1,4 +1,5 @@
 import { useSearchParams } from '@solidjs/router';
+import { animate, inView, stagger } from 'motion';
 import { For } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
@@ -43,7 +44,22 @@ export function Recipes() {
 	const recipe = () => recipesByCategory[searchParams.recipe as keyof typeof recipesByCategory] ?? all;
 
 	return (
-		<ul class="flex flex-wrap gap-4">
+		<ul
+			class="flex flex-wrap gap-4"
+			ref={(el) => {
+				inView(
+					el,
+					(_card, _entry) => {
+						const cards = el.querySelectorAll<HTMLDivElement>('.card-flip');
+						animate(cards, { rotateY: 180 }, { duration: 0.5, delay: stagger(0.2) }).then(async () => {
+							await animate(cards, { rotateY: 0 }, { duration: 0.5, delay: stagger(0.2, { startDelay: 2 }) });
+							cards.forEach((card) => (card.style.transform = ''));
+						});
+					},
+					{ amount: 0.5 },
+				);
+			}}
+		>
 			<TransitionGroup
 				name="recipe"
 				onBeforeExit={(e) => {
