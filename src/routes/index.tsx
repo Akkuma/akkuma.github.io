@@ -35,7 +35,7 @@ export default function Home() {
 			<Section>
 				<SectionTitle>Spilling the Tea</SectionTitle>
 			</Section>
-			<Section class="min-h-[calc((12rem*2)+4rem)]">
+			<Section class="min-h-[calc((12rem*4)+4rem)]">
 				<SectionTitle class="flex justify-between">
 					Explore Brews{' '}
 					<div class="text-lg">
