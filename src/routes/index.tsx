@@ -59,7 +59,7 @@ function Section(props: FlowProps<{ class?: string }>) {
 function SectionTitle(props: FlowProps<{ class?: string }>) {
 	return (
 		<h2
-			class={`relative mb-8 text-xl after:h-2 after:mt-2 after:absolute after:inset-0 after:bg-gradient-to-r after:from-secondary after:to-transparent after:border after:border-foreground after:rounded-full after:translate-y-6 after:transition-colors after:duration-200 after:delay-700 ${props.class}`}
+			class={`relative mb-8 text-xl after:h-2 after:mt-2 after:absolute after:inset-0 after:bg-gradient-to-r after:from-[--gradient-secondary] after:to-transparent after:border after:border-foreground after:rounded-full after:translate-y-6 after:[transition-property:_--gradient-secondary,border-color] after:duration-[250ms] after:delay-[750ms] ${props.class}`}
 		>
 			{props.children}
 		</h2>

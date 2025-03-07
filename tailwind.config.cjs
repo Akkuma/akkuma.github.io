@@ -73,35 +73,13 @@ module.exports = {
 		},
 	},
 	plugins: [
-		/*
-    plugin(({ matchUtilities, theme }) => {
-      matchUtilities(
-        {
-          "animation-delay": (value) => {
-            return {
-              "animation-delay": value,
-            };
-          },
-        },
-        {
-          values: theme("transitionDelay"),
-        },
-      );
-    }),
-    plugin(({ matchUtilities, theme }) => {
-      matchUtilities(
-        {
-          "animation-duration": (value) => {
-            return {
-              "animation-duration": value,
-            };
-          },
-        },
-        {
-          values: theme("transitionDuration"),
-        },
-      );
-    }),*/
+		plugin(function ({ addUtilities }) {
+			addUtilities({
+				'.transition-theme': {
+					transition: 'var(--bg-transition), var(--color-transition)',
+				},
+			});
+		}),
 		require('@anuragroy/tailwindcss-animate'),
 	],
 };

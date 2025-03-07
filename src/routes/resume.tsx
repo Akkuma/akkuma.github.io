@@ -63,7 +63,7 @@ export default function Resume() {
 							<span class="font-normal">PDF</span>
 						</Link>
 					</div>
-					<h2 class="text-2xl text-foreground/80 font-light print:text-black print:text-xl transition-colors duration-700 delay-300 ease-in">
+					<h2 class="text-2xl text-foreground/80 font-light print:text-black print:text-xl transition-theme">
 						Leader &amp; full stack engineer with over 17 years of professional experience
 					</h2>
 				</div>

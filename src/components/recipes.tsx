@@ -56,7 +56,7 @@ export function Recipes() {
 			>
 				<For each={recipe()}>
 					{(Recipe) => (
-						<li class="bg-background scale-100 z-10">
+						<li class="scale-100 z-10">
 							<Recipe />
 						</li>
 					)}

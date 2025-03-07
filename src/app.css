@@ -115,6 +115,12 @@
 }
 
 @layer base {
+	@property --gradient-secondary {
+		syntax: "<color>";
+		initial-value: transparent;
+		inherits: true;
+	}
+
 	:root {
 		--title-family: "Arima", "Arima Fallback";
 		--subheader-family: "Kreon", "Kreon Fallback";
@@ -168,9 +174,14 @@
 
 		--accent: var(--primary-600);
 		--a: oklch(98.02% 0.009 352.35);
+
+		--color-transition: color .25s ease-in 750ms;
+		--bg-transition: background-color .25s ease-in 750ms;
+
+		--gradient-secondary: hsl(var(--secondary));
 	}
 
-	[data-theme="dark"] {
+	:root[data-theme="dark"] {
 		/* OG --background: 244 10% 18%; */
 		/*--background: 244 10% 38%;
     --foreground: 345 48% 97%;*/
@@ -191,12 +202,22 @@
 		--link: var(--primary-500);
 	}
 
-	#app {
+	:root {
 		font-family: "Alegreya Sans", "Alegreya Fallback", sans-serif;
 		background-color: oklch(var(--background));
-		transition: background-color .25s ease-in 750ms, color .25s ease-in 750ms;
+		transition: var(--bg-transition), var(--color-transition);
 		color: oklch(var(--foreground));
 	}
+
+	.bg-background {
+		transition: var(--bg-transition);
+	}
+
+	.text-link,
+	.text-secondary {
+		transition: var(--color-transition);
+	}
+
 	/*! View Transitions based on jh3y https://codepen.io/jh3y/pen/BaggYwa */
 	/*
 	[data-style="wipe"]::view-transition-group(root) {
