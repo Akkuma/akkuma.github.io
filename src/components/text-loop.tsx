@@ -31,7 +31,7 @@ export function TextLoop(props: TextLoopProps) {
 
 	return (
 		<span
-			class="relative inline-flex flex-col-reverse whitespace-nowrap transition-colors duration-200 delay-700"
+			class="relative inline-flex flex-col-reverse whitespace-nowrap"
 			role="marquee"
 			style={{ 'min-width': `${minChars()}ch` }}
 		>
