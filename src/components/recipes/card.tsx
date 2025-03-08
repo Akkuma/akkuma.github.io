@@ -10,11 +10,11 @@ export function Card(props: FlowProps) {
 	);
 }
 
-Card.Front = function CardFront(props: { icon: JSX.Element; name: JSX.Element; about: JSX.Element }) {
+Card.Front = function CardFront(props: { icon?: JSX.Element; name: string; about: JSX.Element }) {
 	return (
 		<div class="text-foreground [backface-visibility:hidden] flex flex-col justify-start gap-4 absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg">
 			<h3 class="flex items-center gap-2 text-lg">
-				{props.icon} {props.name}
+				{props.icon ?? <FauxIcon name={props.name} />} {props.name}
 			</h3>
 			<p>{props.about}</p>
 		</div>
@@ -22,7 +22,7 @@ Card.Front = function CardFront(props: { icon: JSX.Element; name: JSX.Element; a
 };
 
 Card.Back = function CardBack(props: {
-	icon: JSX.Element;
+	icon?: JSX.Element;
 	name: string;
 	start: string;
 	prep: string;
@@ -31,7 +31,7 @@ Card.Back = function CardBack(props: {
 	return (
 		<div class="text-foreground [backface-visibility:hidden] [transform:rotateY(180deg)] absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg flex flex-col justify-start gap-4">
 			<h3 class="flex items-center gap-2 text-lg">
-				{props.icon} {props.name} Details
+				{props.icon ?? <FauxIcon name={props.name} />} {props.name} Details
 			</h3>
 			<ul class="flex gap-2">
 				<li class="flex flex-col">
@@ -50,3 +50,7 @@ Card.Back = function CardBack(props: {
 		</div>
 	);
 };
+
+function FauxIcon(props: { name: string }) {
+	return <div class='w-5 h-5 rounded-sm bg-secondary text-sm p-1 flex justify-center items-center text-background transition-theme'>{props.name[0]}</div>
+}

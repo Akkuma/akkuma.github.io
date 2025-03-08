@@ -8,6 +8,7 @@ import { CSharp } from './recipes/csharp.tsx';
 import { Elixir } from './recipes/elixir.tsx';
 import { Elm } from './recipes/elm.tsx';
 import { Express } from './recipes/express.tsx';
+import { Hono } from './recipes/hono.tsx';
 import { NodeJs } from './recipes/nodejs.tsx';
 import { Python } from './recipes/python.tsx';
 import { React } from './recipes/react.tsx';
@@ -15,15 +16,17 @@ import { Solid } from './recipes/solid.tsx';
 import { Tailwind } from './recipes/tailwind.tsx';
 import { TypeScript } from './recipes/typescript.tsx';
 import { Uno } from './recipes/uno.tsx';
+import { Valtio } from './recipes/valtio.tsx';
 import { Vite } from './recipes/vite.tsx';
+import { Vitest } from './recipes/vitest.tsx';
 
 import './recipes.css';
 
 const recipesByCategory = {
-	frontend: [React, Solid, Elm],
-	backend: [Bun, CSharp, Elixir, Express, NodeJs, Python, TypeScript],
+	frontend: [Elm, React,  Solid, Tailwind, Valtio, Uno],
+	backend: [Bun, CSharp, Elixir, Express, Hono, NodeJs, Python, TypeScript],
 	languages: [CSharp, Elixir, Elm, Python, TypeScript],
-	tools: [Vite],
+	tools: [Vite, Vitest],
 	styling: [Tailwind, Uno],
 	aws: [],
 	cloudflare: [],
