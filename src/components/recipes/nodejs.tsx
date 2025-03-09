@@ -9,7 +9,14 @@ export function NodeJs() {
 				name="Node.js"
 				about="A highly effective brew that can quench any needs while delivering incredible value."
 			/>
-			<Card.Back icon={<NodeJsLogo />} name="Node.js" start="2012" prep="13 years" expertise="Expert" />
+			<Card.Back
+				icon={<NodeJsLogo />}
+				name="Node.js"
+				start="2012"
+				prep="13 years"
+				expertise="Expert"
+				link="https://nodejs.org/"
+			/>
 		</Card>
 	);
 }

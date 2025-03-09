@@ -9,7 +9,14 @@ export function Vite() {
 				name="Vite"
 				about="The premiere brewing method powering modern engineering. We couldn't brew this entire site without it."
 			/>
-			<Card.Back icon={<ViteLogo />} name="Vite" start="2022" prep="3 years" expertise="Expert" />
+			<Card.Back
+				icon={<ViteLogo />}
+				name="Vite"
+				start="2022"
+				prep="3 years"
+				expertise="Expert"
+				link="https://vite.dev/"
+			/>
 		</Card>
 	);
 }
