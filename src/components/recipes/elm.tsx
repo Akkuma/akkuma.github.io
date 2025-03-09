@@ -9,7 +9,14 @@ export function Elm() {
 				name="Elm"
 				about="Recommended only for those willing to try a rather aged brew that had many great ideas, but eventually disappeared from the market."
 			/>
-			<Card.Back icon={<ElmLogo />} name="Elm" start="2020" prep="1 year" expertise="Beginner" />
+			<Card.Back
+				icon={<ElmLogo />}
+				name="Elm"
+				start="2020"
+				prep="1 year"
+				expertise="Beginner"
+				link="https://elm-lang.org/"
+			/>
 		</Card>
 	);
 }

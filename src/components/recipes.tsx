@@ -21,14 +21,15 @@ import { Vite } from './recipes/vite.tsx';
 import { Vitest } from './recipes/vitest.tsx';
 
 import './recipes.css';
+import { Sst } from './recipes/sst.tsx';
 
 const recipesByCategory = {
-	frontend: [Elm, React,  Solid, Tailwind, Valtio, Uno],
-	backend: [Bun, CSharp, Elixir, Express, Hono, NodeJs, Python, TypeScript],
+	frontend: [Elm, React, Solid, Tailwind, Valtio, Uno],
+	backend: [Bun, CSharp, Elixir, Express, Hono, NodeJs, Python, Sst, TypeScript],
 	languages: [CSharp, Elixir, Elm, Python, TypeScript],
-	tools: [Vite, Vitest],
+	tools: [Sst, Vite, Vitest],
 	styling: [Tailwind, Uno],
-	aws: [],
+	aws: [Sst],
 	cloudflare: [],
 	git: [],
 } as const;

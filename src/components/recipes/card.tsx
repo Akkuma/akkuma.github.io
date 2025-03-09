@@ -1,4 +1,5 @@
 import type { FlowProps, JSX } from 'solid-js';
+import { ArrowRightIcon } from '#/icons/arrow-right-icon.tsx';
 
 export function Card(props: FlowProps) {
 	return (
@@ -27,6 +28,7 @@ Card.Back = function CardBack(props: {
 	start: string;
 	prep: string;
 	expertise: string;
+	link?: `https://${string}`;
 }) {
 	return (
 		<div class="text-foreground [backface-visibility:hidden] [transform:rotateY(180deg)] absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg flex flex-col justify-start gap-4">
@@ -47,10 +49,19 @@ Card.Back = function CardBack(props: {
 					{props.expertise}
 				</li>
 			</ul>
+			{props.link && (
+				<a class="absolute bottom-4 right-4 flex items-center" target="_blank" href={props.link}>
+					Learn more <ArrowRightIcon />
+				</a>
+			)}
 		</div>
 	);
 };
 
 function FauxIcon(props: { name: string }) {
-	return <div class='w-5 h-5 rounded-sm bg-secondary text-sm p-1 flex justify-center items-center text-background transition-theme'>{props.name[0]}</div>
+	return (
+		<div class="w-5 h-5 rounded-sm bg-secondary text-sm p-1 flex justify-center items-center text-background transition-theme">
+			{props.name[0]}
+		</div>
+	);
 }
