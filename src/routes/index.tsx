@@ -66,9 +66,9 @@ function SectionTitle(props: FlowProps<{ class?: string }>) {
 	);
 }
 
-const categoryToDisplayCategory: Readonly<Partial<Record<typeof categories[number], string>>> = {
-	aws: 'AWS'
-}
+const categoryToDisplayCategory: Readonly<Partial<Record<(typeof categories)[number], string>>> = {
+	aws: 'AWS',
+};
 function Brews() {
 	const [searchParams] = useSearchParams();
 

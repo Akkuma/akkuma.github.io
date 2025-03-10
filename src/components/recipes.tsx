@@ -54,17 +54,34 @@ export function Recipes() {
 		<ul
 			class="flex flex-wrap gap-4"
 			ref={(el) => {
-				inView(
-					el,
-					(_card, _entry) => {
-						const cards = el.querySelectorAll<HTMLDivElement>('.card-flip');
-						animate(cards, { rotateY: 180 }, { duration: 0.5, delay: stagger(0.2) }).then(async () => {
-							await animate(cards, { rotateY: 0 }, { duration: 0.5, delay: stagger(0.2, { startDelay: 2 }) });
-							cards.forEach((card) => (card.style.transform = ''));
+				const isMobile = !window.matchMedia('(min-width: 640px)').matches;
+				const cards = el.querySelectorAll<HTMLDivElement>('.card-flip');
+
+				if (isMobile) {
+					inView(cards, (card, _entry) => {
+						animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
+							await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
+							if (card instanceof HTMLElement) {
+								card.style.transform = '';
+							}
 						});
-					},
-					{ amount: 0.5 },
-				);
+					}, { amount: .9 });
+				} else {
+					inView(
+						el,
+						(_card, _entry) => {
+							animate(cards, { rotateY: 180 }, { duration: 0.5, delay: stagger(0.2) }).then(async () => {
+								await animate(
+									cards,
+									{ rotateY: 0 },
+									{ duration: 0.5, delay: stagger(0.2, { startDelay: 2 }) },
+								);
+								cards.forEach((card) => (card.style.transform = ''));
+							});
+						},
+						{ amount: 0.5 },
+					);
+				}
 			}}
 		>
 			<TransitionGroup
@@ -79,7 +96,7 @@ export function Recipes() {
 			>
 				<For each={recipe()}>
 					{(Recipe) => (
-						<li class="scale-100 z-10">
+						<li class="scale-100 z-10 w-full sm:w-auto">
 							<Recipe />
 						</li>
 					)}

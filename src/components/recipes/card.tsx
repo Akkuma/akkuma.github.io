@@ -3,7 +3,7 @@ import { ArrowRightIcon } from '#/icons/arrow-right-icon.tsx';
 
 export function Card(props: FlowProps) {
 	return (
-		<div class="[perspective:1000px] h-48 w-60 group isolate bg-background">
+		<div class="[perspective:1000px] h-48 w-full sm:w-60 group isolate bg-background">
 			<div class="card-flip transition-transform duration-700 h-full w-full shadow-lg rounded-lg group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] group-hover:duration-500 relative">
 				{props.children}
 			</div>
