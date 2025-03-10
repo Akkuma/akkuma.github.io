@@ -38,7 +38,7 @@ export default function Home() {
 			<Section class="min-h-[calc((12rem*5)+4rem)]">
 				<SectionTitle class="flex justify-between">
 					Explore Brews{' '}
-					<div class="text-lg">
+					<div class="text-lg hidden md:block">
 						<Brews />
 					</div>
 				</SectionTitle>
@@ -88,6 +88,7 @@ function Brews() {
 								aria-current={current() ? 'true' : 'false'}
 								preload
 								noScroll
+								replace
 							>
 								{categoryToDisplayCategory[brew] ?? brew}
 							</a>

@@ -1,6 +1,6 @@
 import { useSearchParams } from '@solidjs/router';
 import { animate, inView, stagger } from 'motion';
-import { For } from 'solid-js';
+import { For, } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
 import { AwsLambda } from './recipes/aws-lambda.tsx';
@@ -46,10 +46,13 @@ export const categories = [
 	),
 ] as const;
 export function Recipes() {
-	const [searchParams] = useSearchParams();
+	const [searchParams, setSearchParams] = useSearchParams();
+	
+	if (typeof window !== 'undefined' && !window.matchMedia('(min-width: 640px)').matches) {
+		setSearchParams({ recipe: 'all' }, { replace: true })
+	}
 
 	const recipe = () => recipesByCategory[searchParams.recipe as keyof typeof recipesByCategory] ?? all;
-
 	return (
 		<ul
 			class="flex flex-wrap gap-4"
