@@ -66,6 +66,9 @@ function SectionTitle(props: FlowProps<{ class?: string }>) {
 	);
 }
 
+const categoryToDisplayCategory: Readonly<Partial<Record<typeof categories[number], string>>> = {
+	aws: 'AWS'
+}
 function Brews() {
 	const [searchParams] = useSearchParams();
 
@@ -77,7 +80,7 @@ function Brews() {
 					return (
 						<li>
 							<a
-								href={`/?recipe=${brew.toLowerCase()}`}
+								href={`/?recipe=${brew}`}
 								class="capitalize"
 								classList={{
 									'font-bold': current(),
@@ -86,7 +89,7 @@ function Brews() {
 								preload
 								noScroll
 							>
-								{brew}
+								{categoryToDisplayCategory[brew] ?? brew}
 							</a>
 						</li>
 					);

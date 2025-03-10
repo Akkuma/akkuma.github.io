@@ -3,6 +3,8 @@ import { animate, inView, stagger } from 'motion';
 import { For } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
+import { AwsLambda } from './recipes/aws-lambda.tsx';
+import { AwsS3 } from './recipes/aws-s3.tsx';
 import { Bun } from './recipes/bun.tsx';
 import { CSharp } from './recipes/csharp.tsx';
 import { Elixir } from './recipes/elixir.tsx';
@@ -10,9 +12,11 @@ import { Elm } from './recipes/elm.tsx';
 import { Express } from './recipes/express.tsx';
 import { Hono } from './recipes/hono.tsx';
 import { NodeJs } from './recipes/nodejs.tsx';
+import { Panda } from './recipes/panda.tsx';
 import { Python } from './recipes/python.tsx';
 import { React } from './recipes/react.tsx';
 import { Solid } from './recipes/solid.tsx';
+import { Sst } from './recipes/sst.tsx';
 import { Tailwind } from './recipes/tailwind.tsx';
 import { TypeScript } from './recipes/typescript.tsx';
 import { Uno } from './recipes/uno.tsx';
@@ -21,15 +25,14 @@ import { Vite } from './recipes/vite.tsx';
 import { Vitest } from './recipes/vitest.tsx';
 
 import './recipes.css';
-import { Sst } from './recipes/sst.tsx';
 
 const recipesByCategory = {
 	frontend: [Elm, React, Solid, Tailwind, Valtio, Uno],
 	backend: [Bun, CSharp, Elixir, Express, Hono, NodeJs, Python, Sst, TypeScript],
 	languages: [CSharp, Elixir, Elm, Python, TypeScript],
 	tools: [Sst, Vite, Vitest],
-	styling: [Tailwind, Uno],
-	aws: [Sst],
+	styling: [Panda, Tailwind, Uno],
+	aws: [AwsLambda, AwsS3, Sst],
 	cloudflare: [],
 	git: [],
 } as const;
