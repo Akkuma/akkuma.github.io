@@ -1,6 +1,6 @@
 import { useSearchParams } from '@solidjs/router';
 import { animate, inView, stagger } from 'motion';
-import { For, } from 'solid-js';
+import { For } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
 import { AwsLambda } from './recipes/aws-lambda.tsx';
@@ -47,9 +47,9 @@ export const categories = [
 ] as const;
 export function Recipes() {
 	const [searchParams, setSearchParams] = useSearchParams();
-	
+
 	if (typeof window !== 'undefined' && !window.matchMedia('(min-width: 640px)').matches) {
-		setSearchParams({ recipe: 'all' }, { replace: true })
+		setSearchParams({ recipe: 'all' }, { replace: true });
 	}
 
 	const recipe = () => recipesByCategory[searchParams.recipe as keyof typeof recipesByCategory] ?? all;
@@ -61,14 +61,18 @@ export function Recipes() {
 				const cards = el.querySelectorAll<HTMLDivElement>('.card-flip');
 
 				if (isMobile) {
-					inView(cards, (card, _entry) => {
-						animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
-							await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
-							if (card instanceof HTMLElement) {
-								card.style.transform = '';
-							}
-						});
-					}, { amount: .9 });
+					inView(
+						cards,
+						(card, _entry) => {
+							animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
+								await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
+								if (card instanceof HTMLElement) {
+									card.style.transform = '';
+								}
+							});
+						},
+						{ amount: 0.9 },
+					);
 				} else {
 					inView(
 						el,
