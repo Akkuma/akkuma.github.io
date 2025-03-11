@@ -39,6 +39,7 @@
     "@biomejs/biome": "1.9.4",
     "@kurone-kito/jsonresume-types": "^0.4.0",
     "@mdx-js/mdx": "^3.1.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/serialize-javascript": "^5.0.4",
     "playwright": "^1.50.1",
     "postcss-nesting": "^12.1.1",

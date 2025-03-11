@@ -1,4 +1,5 @@
 import { type JSX, Suspense, createSignal } from 'solid-js';
+import { Box } from '#/components/box.tsx';
 import { usePosts } from '#/hook/use-posts.js';
 
 interface Post {
@@ -25,7 +26,14 @@ export default function Blog() {
   </Show>*/
 	return (
 		<>
-			<Suspense fallback={<div>Suspeded</div>}>{allPosts()[0]?.default}</Suspense>
+			<Suspense fallback={<div>Suspeded</div>}>
+				<Box
+					class='prose group-data-[theme="dark"]/root:prose-invert prose-stone lg:prose-lg *:transition-theme'
+					as="main"
+				>
+					<article class="max-w-[75ch]">{allPosts()[0]?.default}</article>
+				</Box>
+			</Suspense>
 		</>
 	);
 }

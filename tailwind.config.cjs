@@ -73,13 +73,14 @@ module.exports = {
 		},
 	},
 	plugins: [
-		plugin(function ({ addUtilities }) {
+		function ({ addUtilities }) {
 			addUtilities({
 				'.transition-theme': {
 					transition: 'var(--bg-transition), var(--color-transition)',
 				},
 			});
-		}),
+		},
 		require('@anuragroy/tailwindcss-animate'),
+		require('@tailwindcss/typography'),
 	],
 };

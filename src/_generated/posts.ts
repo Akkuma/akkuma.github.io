@@ -1,4 +1,1 @@
-export const postsMetadatas = [
-	{ file: 'test2', summary: 'This is a second summary', created: new Date('2025-01-25T02:14:35.032Z') },
-	{ file: 'test', summary: 'This is a summary', created: new Date('2025-01-25T02:14:13.359Z') },
-] as const;
+export const postsMetadatas = [{"summary":"This is a summary","created":new Date("2025-03-11T14:17:21.983Z"),"file":"how-about-a-spot-of-tea.mdx"}] as const

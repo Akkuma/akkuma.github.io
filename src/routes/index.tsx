@@ -1,7 +1,7 @@
 import { useSearchParams } from '@solidjs/router';
 import { type FlowProps, For } from 'solid-js';
-
 import { Box } from '#/components/box.tsx';
+import { Posts } from '#/components/posts.tsx';
 import { Recipes, categories } from '#/components/recipes.tsx';
 import { TextLoop } from '#/components/text-loop.tsx';
 
@@ -34,6 +34,7 @@ export default function Home() {
 
 			<Section>
 				<SectionTitle>Spilling the Tea</SectionTitle>
+				<Posts />
 			</Section>
 			<Section class="min-h-[calc((12rem*5)+4rem)]">
 				<SectionTitle class="flex justify-between">

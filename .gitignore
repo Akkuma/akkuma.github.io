@@ -6,6 +6,7 @@ dist
 .netlify
 netlify
 .vinxi
+_generated/
 
 # Environment
 .env
@@ -20,9 +21,6 @@ netlify
 .classpath
 *.launch
 .settings/
-
-# Temp
-gitignore
 
 # System Files
 .DS_Store
