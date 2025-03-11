@@ -6,7 +6,7 @@ dist
 .netlify
 netlify
 .vinxi
-_generated/
+_generated
 
 # Environment
 .env
