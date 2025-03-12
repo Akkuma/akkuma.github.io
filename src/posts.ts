@@ -1,8 +1,8 @@
 import type { JSX } from 'solid-js';
+import type { postsMetadatas } from './_generated/posts.ts';
 
-export interface Post {
-	summary: string;
-	created: Date;
+type PostMetadata = (typeof postsMetadatas)[number];
+export interface Post extends PostMetadata {
 	default: JSX.Element;
 }
 

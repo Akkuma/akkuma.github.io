@@ -51,5 +51,5 @@ const generated = evals.map(({ file, ...rest }) => {
 
 writeFileSync(
 	'./src/_generated/posts.ts',
-	`export const postsMetadatas = ${serialize(evals, { unsafe: true /* Only need to use for debugging space: '\t' */ })} as const`,
+	`export const postsMetadatas = ${serialize(evals, { unsafe: true, ignoreFunction: true /* Only need to use for debugging space: '\t' */ })} as const`,
 );

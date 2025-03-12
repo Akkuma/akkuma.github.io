@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin.js');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+	content: ['./src/**/*.{html,js,jsx,ts,tsx,mdx}'],
 	darkMode: ['variant', ['@media (prefers-color-scheme: dark) { &:not(.light *) }']],
 	theme: {
 		extend: {

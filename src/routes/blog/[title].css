@@ -1,0 +1,5 @@
+.prose {
+	p {
+		text-wrap: pretty;
+	}
+}

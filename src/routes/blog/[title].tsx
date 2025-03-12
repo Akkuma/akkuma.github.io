@@ -1,11 +1,11 @@
-import { type JSX, Suspense, createSignal } from 'solid-js';
+import { For, Suspense } from 'solid-js';
+import type { postsMetadatas } from '#/_generated/posts.ts';
 import { Box } from '#/components/box.tsx';
 import { usePosts } from '#/hook/use-posts.js';
 
-interface Post {
-	summary: string;
-	default: JSX.Element;
-}
+import './[title].css';
+
+type Post = typeof postsMetadatas;
 const postsImports = import.meta.glob<true, string, () => Promise<Post>>('../../blog/*.mdx');
 const postsImportsProm: Promise<Post>[] = [];
 
@@ -18,12 +18,7 @@ for (const post in postsImports) {
 
 export default function Blog() {
 	const allPosts = usePosts();
-	const [post, setPost] = createSignal<Post>();
 
-	//Promise.all(postsImportsProm).then((posts) => setPost(posts[0]))
-	/*<Show when={post()} fallback={<div>Loading</div>}>
-    {post()?.default ?? ''}
-  </Show>*/
 	return (
 		<>
 			<Suspense fallback={<div>Suspeded</div>}>
@@ -31,7 +26,18 @@ export default function Blog() {
 					class='prose group-data-[theme="dark"]/root:prose-invert prose-stone lg:prose-lg *:transition-theme'
 					as="main"
 				>
-					<article class="max-w-[75ch]">{allPosts()[0]?.default}</article>
+					<article class="max-w-[75ch]">
+						{allPosts()[0]?.default}
+
+						<div class="not-prose text-sm">
+							Tags:
+							<ul class="inline-flex gap-2 ml-2">
+								<For each={allPosts()[0]?.tags}>
+									{(tag) => <li class="bg-secondary text-background w-min px-2">{tag}</li>}
+								</For>
+							</ul>
+						</div>
+					</article>
 				</Box>
 			</Suspense>
 		</>
