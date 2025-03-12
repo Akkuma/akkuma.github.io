@@ -1,15 +1,22 @@
-import { readdirSync, writeFileSync } from 'node:fs';
+import { globSync, writeFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 
-import { evaluate } from '@mdx-js/mdx';
+import { join } from 'node:path';
+import { type EvaluateOptions, compile, evaluate, run } from '@mdx-js/mdx';
 import serialize from 'serialize-javascript';
 import { Fragment, jsx, jsxs } from 'solid-js/h/jsx-runtime';
 
-const opts = { Fragment: Fragment, jsx: jsx, jsxs: jsxs };
-const mdxFiles = readdirSync('./src/blog');
+const baseUrl = join(import.meta.url, '../..', './src/blog/');
+const opts: Readonly<EvaluateOptions> = {
+	Fragment: Fragment,
+	jsx: jsx,
+	jsxs: jsxs,
+	baseUrl,
+};
+const mdxFiles = globSync('./src/blog/*.mdx');
 const fileContents = await Promise.all(
 	mdxFiles.map(async (file) => {
-		const content = await readFile(`./src/blog/${file}`);
+		const content = await readFile(`${file}`);
 		return { content, file };
 	}),
 );
@@ -21,7 +28,12 @@ interface CustomMDX extends Record<string, unknown> {
 }
 
 const evalProms = fileContents.map(async ({ content, file }) => {
-	const { default: _, ...rest } = (await evaluate({ value: content }, opts)) as unknown as CustomMDX;
+	const compiled = await compile({ value: content }, { outputFormat: 'function-body' });
+	const onlyExports = compiled.value
+		.toString()
+		.split('\n')
+		.filter((line) => !line.includes('await import'));
+	const { default: _, ...rest } = (await run(onlyExports.join('\n'), opts)) as unknown as CustomMDX;
 	return {
 		...rest,
 		file,
