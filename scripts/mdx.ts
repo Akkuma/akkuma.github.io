@@ -17,7 +17,7 @@ const mdxFiles = globSync('./src/blog/*.mdx');
 const fileContents = await Promise.all(
 	mdxFiles.map(async (file) => {
 		const content = await readFile(`${file}`);
-		return { content, file };
+		return { content, file: file.replace('./src/blog/', '') };
 	}),
 );
 
