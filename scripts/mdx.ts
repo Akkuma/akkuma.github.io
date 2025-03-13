@@ -29,6 +29,7 @@ interface CustomMDX extends Record<string, unknown> {
 
 const evalProms = fileContents.map(async ({ content, file }) => {
 	const compiled = await compile({ value: content }, { outputFormat: 'function-body' });
+	//! https://github.com/oven-sh/bun/issues/18137
 	const onlyExports = compiled.value
 		.toString()
 		.split('\n')
