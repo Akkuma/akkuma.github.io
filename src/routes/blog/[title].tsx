@@ -37,7 +37,7 @@ export default function Blog() {
 								</For>
 							</ul>
 						</div>
-						<footer class="not-prose text-xs">
+						<footer class="not-prose text-xs my-2">
 							<p xmlns:cc="http://creativecommons.org/ns#">
 								This post is licensed under{' '}
 								<a
