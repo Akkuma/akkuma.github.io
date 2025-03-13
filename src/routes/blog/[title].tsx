@@ -37,6 +37,39 @@ export default function Blog() {
 								</For>
 							</ul>
 						</div>
+						<footer class="not-prose text-xs">
+							<p xmlns:cc="http://creativecommons.org/ns#">
+								This post is licensed under{' '}
+								<a
+									class="inline-flex gap-1 items-center"
+									href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+									target="_blank"
+									rel="license noopener noreferrer"
+								>
+									CC BY-NC-SA 4.0
+									<img
+										class="inline w-[1em] h-[1em]"
+										src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+										alt="Creative Commons"
+									/>
+									<img
+										class="inline w-[1em] h-[1em]"
+										src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+										alt="Attribution"
+									/>
+									<img
+										class="inline w-[1em] h-[1em]"
+										src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"
+										alt="NonCommercial"
+									/>
+									<img
+										class="inline w-[1em] h-[1em]"
+										src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
+										alt="ShareAlike"
+									/>
+								</a>
+							</p>
+						</footer>
 					</article>
 				</Box>
 			</Suspense>
