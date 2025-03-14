@@ -214,7 +214,8 @@
 	}
 
 	.text-link,
-	.text-secondary {
+	.text-secondary,
+	.text-accent {
 		transition: var(--color-transition);
 	}
 
