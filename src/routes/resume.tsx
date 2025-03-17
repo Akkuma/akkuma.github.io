@@ -89,6 +89,8 @@ export default function Resume() {
 								ref={emailRef}
 								class="w-full"
 								href="mailto:gregorywaxman+resume@gmail.com"
+								target="_blank"
+								rel="noreferrer"
 								onPointerEnter={(el) => {
 									el.currentTarget.textContent = atob(encodedContact);
 								}}
