@@ -29,25 +29,25 @@ export default function Tailwind() {
 				<P>Now let me tell you about why I'm a great engineer.</P>
 				<P>
 					Let's start with this site. I whipped it up originally overnight as a way to apply for a job. It
-					uses tech I don't use daily at my job,{' '}
-					<a class="text-sky-700" href="https://start.solidjs.com/" target="_blank" rel="noreferrer">
+					uses tech I've never used at a company,{' '}
+					<a class="text-link" href="https://start.solidjs.com/" target="_blank" rel="noreferrer">
 						SolidStart
 					</a>{' '}
 					&{' '}
-					<a class="text-sky-700" href="https://bun.sh/" target="_blank" rel="noreferrer">
+					<a class="text-link" href="https://bun.sh/" target="_blank" rel="noreferrer">
 						Bun
 					</a>
-					. There's even some custom bells and whistles I've added in too. We've got
-					<a class="text-sky-700" href="https://jsonresume.org/" target="_blank" rel="noreferrer">
+					. There's even some custom bells and whistles I've added in too. We've got{' '}
+					<a class="text-link" href="https://jsonresume.org/" target="_blank" rel="noreferrer">
 						jsonresume
 					</a>{' '}
-					in action, plus{' '}
-					<a class="text-sky-700" href="https://mdxjs.com/" target="_blank" rel="noreferrer">
+					in action plus{' '}
+					<a class="text-link" href="https://mdxjs.com/" target="_blank" rel="noreferrer">
 						mdxjs
-					</a>{' '}
-					with some minimal custom scripts to produce a static site. New doesn't scare me. It is an adventure
-					waiting for me to begin. There's so much to learn in this field and it excites me the prospect of
-					jumping into unique challenges.
+					</a>
+					, topped off with some minimal custom scripts to produce a static site. New doesn't scare me. It is
+					an adventure waiting for me to begin. There's so much to learn in this field and it excites me the
+					prospect of jumping into unique challenges.
 				</P>
 				<P>
 					What are a few of the responsibilities that excite me about a job?
@@ -81,11 +81,11 @@ export default function Tailwind() {
 				<P>
 					Addtionally, I've written detailed and well regarded ADRs at Bison. The most recent of those ADRs
 					was broken into five different ADRs, which included{' '}
-					<a href="/ADR_Frontend_Framework.pdf" class="text-sky-700" target="_blank" rel="noreferrer">
+					<a href="/ADR_Frontend_Framework.pdf" class="text-link" target="_blank" rel="noreferrer">
 						frontend framework direction for the company
 					</a>{' '}
 					&{' '}
-					<a href="/ADR_Metaframework.pdf" class="text-sky-700" target="_blank" rel="noreferrer">
+					<a href="/ADR_Metaframework.pdf" class="text-link" target="_blank" rel="noreferrer">
 						metaframework analysis for future tech guidance
 					</a>
 					.
@@ -97,7 +97,7 @@ export default function Tailwind() {
 						<Li>
 							<a
 								href="https://github.com/dannyhw/storybook-chromatic-link-comment/pull/107"
-								class="text-sky-700"
+								class="text-link"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -107,7 +107,7 @@ export default function Tailwind() {
 						<Li>
 							<a
 								href="https://github.com/nksaraf/vinxi/pull/286"
-								class="text-sky-700"
+								class="text-link"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -117,7 +117,7 @@ export default function Tailwind() {
 						<Li>
 							<a
 								href="https://github.com/urql-graphql/urql/issues/3462"
-								class="text-sky-700"
+								class="text-link"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -127,7 +127,7 @@ export default function Tailwind() {
 						<Li>
 							<a
 								href="https://github.com/lukeed/dset/pull/40"
-								class="text-sky-700"
+								class="text-link"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -137,7 +137,7 @@ export default function Tailwind() {
 						<Li>
 							<a
 								href="https://github.com/Akkuma/akita-email"
-								class="text-sky-700"
+								class="text-link"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -148,7 +148,7 @@ export default function Tailwind() {
 				</P>
 				<P>
 					I hope I've tickled your fancy enough for you to check out my full{' '}
-					<A href="/resume" class="text-sky-700">
+					<A href="/resume" class="text-link">
 						resume
 					</A>
 					, where you can also find my contact information. If you're excited to talk to me reach out and
