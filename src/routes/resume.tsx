@@ -11,14 +11,23 @@ import { Email } from '../icons/email.jsx';
 import { GitHub } from '../icons/github.jsx';
 import { LinkedIn } from '../icons/linkedin.jsx';
 
+const encodedContact = 'Z3JlZ29yeXdheG1hbityZXN1bWVAZ21haWwuY29t';
 export default function Resume() {
+	let emailRef: HTMLAnchorElement | undefined;
 	onMount(() => {
 		let wasDarkMode = false;
 		const beforePrint = () => {
 			wasDarkMode = document.documentElement.dataset.theme === 'dark';
 			document.documentElement.dataset.theme = 'light';
+			if (emailRef) {
+				emailRef.textContent = atob(encodedContact);
+			}
 		};
 		const afterPrint = () => {
+			if (emailRef) {
+				emailRef.textContent = encodedContact;
+			}
+
 			if (!wasDarkMode) return;
 
 			document.documentElement.dataset.theme = 'dark';
@@ -76,8 +85,18 @@ export default function Resume() {
 					<div id="contact">
 						<div class="email flex items-center gap-1">
 							<Email />
-							<Link class="hide-href-print" href="mailto:gregorywaxman+resume@gmail.com">
-								gregorywaxman+resume@gmail.com
+							<Link
+								ref={emailRef}
+								class="w-full"
+								href="mailto:gregorywaxman+resume@gmail.com"
+								onPointerEnter={(el) => {
+									el.currentTarget.textContent = atob(encodedContact);
+								}}
+								onPointerLeave={(el) => {
+									el.currentTarget.textContent = encodedContact;
+								}}
+							>
+								{encodedContact}
 							</Link>
 						</div>
 					</div>
