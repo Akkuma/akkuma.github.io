@@ -22,14 +22,14 @@ export default function Tailwind() {
 					It is like art that starts from a blank canvas and isn't fully realized until the very end.
 				</P>
 				<P>
-					I know this will come as a shock, but I'm really Greg, currently a Principal Software Engineer, that
-					has been working on web applications professionally since 2007. But I've been playing on the web
-					back when Angelfire and Geocities were the cool tools. I love making things that others get to use.
+					I know this will come as a shock, but I'm really Greg. Thanks to Akira Toriyama I've been playing on
+					the web back when Angelfire and Geocities were the cool tools and been at it professionally since
+					2007. Simply put, I love making things that others get to use.
 				</P>
-				<P>Now let me tell you about why I'm a great engineer you'd want working with you or your company.</P>
+				<P>Now let me tell you about why I'm a great engineer.</P>
 				<P>
-					Let's start with this site. I whipped it up overnight as a way to apply for a job. It uses tech I
-					don't use daily at my job,{' '}
+					Let's start with this site. I whipped it up originally overnight as a way to apply for a job. It
+					uses tech I don't use daily at my job,{' '}
 					<a class="text-sky-700" href="https://start.solidjs.com/" target="_blank" rel="noreferrer">
 						SolidStart
 					</a>{' '}
@@ -37,8 +37,17 @@ export default function Tailwind() {
 					<a class="text-sky-700" href="https://bun.sh/" target="_blank" rel="noreferrer">
 						Bun
 					</a>
-					. New doesn't scare me. It is an adventure waiting for me to begin. There's so much to learn in this
-					field and it excites me the prospect of jumping into unique challenges.
+					. There's even some custom bells and whistles I've added in too. We've got
+					<a class="text-sky-700" href="https://jsonresume.org/" target="_blank" rel="noreferrer">
+						jsonresume
+					</a>{' '}
+					in action, plus{' '}
+					<a class="text-sky-700" href="https://mdxjs.com/" target="_blank" rel="noreferrer">
+						mdxjs
+					</a>{' '}
+					with some minimal custom scripts to produce a static site. New doesn't scare me. It is an adventure
+					waiting for me to begin. There's so much to learn in this field and it excites me the prospect of
+					jumping into unique challenges.
 				</P>
 				<P>
 					What are a few of the responsibilities that excite me about a job?
@@ -49,6 +58,7 @@ export default function Tailwind() {
 							'Solving real problems people are facing',
 							'Being a champion for quality',
 							'Donning my robe and wizard hat to make magic happen',
+							// eslint-disable-next-line jsx-key
 						].map((val, i) => (
 							<Li>
 								{val} <Check index={i} />
@@ -141,7 +151,7 @@ export default function Tailwind() {
 					<A href="/resume" class="text-sky-700">
 						resume
 					</A>
-					, where you can also find my contact infromation. If you're excited to talk to me reach out and
+					, where you can also find my contact information. If you're excited to talk to me reach out and
 					let's chat to see how I can help you.
 				</P>
 				<p class="leading-7 [&:not(:first-child)] text-pretty mt-6 animate-in anim-ease-in-out fade-in-0 fill-mode-backwards motion-reduce:animate-none [animation-timeline:view()] [animation-range:entry_0%_contain_10%] supports-no-view-driven-animations:animate-none">
