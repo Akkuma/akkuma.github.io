@@ -10,6 +10,11 @@ export default createHandler(() => (
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
 					<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+					<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+					<link rel="icon" href="/favicon/favicon.ico" />
+					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+					<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+					<link rel="manifest" href="/favicon/site.webmanifest" />
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 					<link
@@ -23,8 +28,6 @@ export default createHandler(() => (
 						as="style"
 						fetchpriority="high"
 					/>
-
-					<link rel="icon" href="/favicon.ico" />
 
 					{/* Resume */}
 					{/*
