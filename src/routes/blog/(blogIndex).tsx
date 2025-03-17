@@ -4,7 +4,9 @@ import { Posts } from '#/components/posts.tsx';
 export default function BlogIndex() {
 	return (
 		<Box>
-			<Posts />
+			<div class="max-w-[75ch]">
+				<Posts />
+			</div>
 		</Box>
 	);
 }
