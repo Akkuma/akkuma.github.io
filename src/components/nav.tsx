@@ -1,4 +1,4 @@
-import { A, useMatch } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { clientOnly } from '@solidjs/start';
 import { ThemeToggleFallback } from './theme-toggle-fallback.jsx';
 
@@ -11,7 +11,7 @@ export default function Nav() {
 			</A>
 			<div class="flex items-center gap-4">
 				<ul class="flex items-center gap-3 leading-5 sm:gap-6">
-					<NavLink href="" text="Home" />
+					<NavLink href="" text="Home" end />
 					<NavLink href="resume" />
 					<NavLink href="about" />
 					<NavLink href="blog" />
@@ -22,13 +22,12 @@ export default function Nav() {
 	);
 }
 
-function NavLink({ href, text = href }: { href: string; text?: string }) {
-	const match = useMatch(() => href);
-	const locationClasses = () => (match() ? 'border-accent' : 'border-transparent hover:border-accent');
-
+function NavLink({ href, text = href, end }: { href: string; text?: string; end?: boolean }) {
 	return (
-		<li class={`border-b-2 cursor-pointer ${locationClasses()}`}>
-			<A href={`/${href}`} class="capitalize" preload>
+		<li
+			class={`border-b-2 cursor-pointer border-transparent hover:border-accent has-[.active]:border-accent`}
+		>
+			<A href={`/${href}`} class="capitalize" preload end={end}>
 				{text}
 			</A>
 		</li>
