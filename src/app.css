@@ -177,6 +177,7 @@
 
 		--color-transition: color .25s ease-in 750ms;
 		--bg-transition: background-color .25s ease-in 750ms;
+		--border-transition: border-color .25s ease-in 750ms;
 
 		--gradient-secondary: hsl(var(--secondary));
 	}

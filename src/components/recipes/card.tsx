@@ -4,7 +4,7 @@ import { ArrowRightIcon } from '#/icons/arrow-right-icon.tsx';
 export function Card(props: FlowProps) {
 	return (
 		<div class="[perspective:1000px] h-48 w-full sm:w-60 group isolate bg-background">
-			<div class="card-flip transition-transform duration-700 h-full w-full shadow-lg rounded-lg group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] group-hover:duration-500 relative [backface-visibility:hidden]">
+			<div class="card-flip transition-transform duration-700 h-full w-full shadow-lg rounded-lg group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] group-hover:duration-500 relative">
 				{props.children}
 			</div>
 		</div>
@@ -13,7 +13,7 @@ export function Card(props: FlowProps) {
 
 Card.Front = function CardFront(props: { icon?: JSX.Element; name: string; about: JSX.Element }) {
 	return (
-		<div class="text-foreground [backface-visibility:hidden] flex flex-col justify-start gap-4 absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg">
+		<div class="text-foreground bg-background [backface-visibility:hidden] flex flex-col justify-start gap-4 absolute inset-0 p-4 border border-foreground/40 transition-theme rounded-lg">
 			<h3 class="flex items-center gap-2 text-lg">
 				{props.icon ?? <FauxIcon name={props.name} />} {props.name}
 			</h3>
@@ -31,7 +31,7 @@ Card.Back = function CardBack(props: {
 	link?: `https://${string}`;
 }) {
 	return (
-		<div class="text-foreground [backface-visibility:hidden] [transform:rotateY(180deg)] absolute inset-0 p-4 border border-foreground/40 transition-colors duration-200 delay-700 rounded-lg flex flex-col justify-start gap-4">
+		<div class="text-foreground bg-background [backface-visibility:hidden] [transform:rotateY(180deg)] absolute inset-0 p-4 border border-foreground/40 transition-theme rounded-lg flex flex-col justify-start gap-4">
 			<h3 class="flex items-center gap-2 text-lg">
 				{props.icon ?? <FauxIcon name={props.name} />} {props.name} Details
 			</h3>

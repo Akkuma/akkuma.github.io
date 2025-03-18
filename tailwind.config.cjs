@@ -76,7 +76,7 @@ module.exports = {
 		function ({ addUtilities }) {
 			addUtilities({
 				'.transition-theme': {
-					transition: 'var(--bg-transition), var(--color-transition)',
+					transition: 'var(--bg-transition), var(--color-transition), var(--border-transition)',
 				},
 			});
 		},
