@@ -1,5 +1,5 @@
 import { useSearchParams } from '@solidjs/router';
-import { animate, inView, stagger } from 'motion';
+import { type AnimationPlaybackControls, animate, inView, spring, stagger } from 'motion';
 import { For, createSignal } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
@@ -45,9 +45,17 @@ export const categories = [
 		a.localeCompare(b),
 	),
 ] as const;
+
+interface Card extends HTMLDivElement {
+	flip?: AnimationPlaybackControls;
+}
+interface AnimatedList extends HTMLUListElement {
+	flip?: AnimationPlaybackControls;
+}
 export function Recipes() {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [showAnimation, setShowAnimation] = createSignal(true);
+	let list: AnimatedList | undefined;
 
 	if (typeof window !== 'undefined' && !window.matchMedia('(min-width: 640px)').matches) {
 		setSearchParams({ recipe: 'all' }, { replace: true });
@@ -57,9 +65,10 @@ export function Recipes() {
 	return (
 		<ul
 			class="flex flex-wrap gap-4"
-			ref={(el) => {
+			ref={(el: AnimatedList) => {
+				list = el;
 				const isMobile = !window.matchMedia('(min-width: 640px)').matches;
-				const cards = el.querySelectorAll<HTMLDivElement>('.card-flip');
+				const cards = el.querySelectorAll<Card>('.card-flip');
 
 				if (isMobile) {
 					inView(
@@ -79,16 +88,31 @@ export function Recipes() {
 				} else {
 					inView(
 						el,
-						(_card, _entry) => {
+						(_list, _entry) => {
+							// Prevent running altogether if they hovered
 							if (!showAnimation()) return;
 
-							animate(cards, { rotateY: 180 }, { duration: 0.5, delay: stagger(0.2) }).then(async () => {
-								await animate(
+							el.flip = animate(
+								cards,
+								{ rotateY: 180 },
+								{
+									duration: 0.5,
+									delay: stagger(0.2),
+									type: spring,
+								},
+							);
+							el.flip.then(async () => {
+								// Prevent running altogether if they hovered
+								if (!showAnimation()) return;
+
+								el.flip = animate(
 									cards,
 									{ rotateY: 0 },
-									{ duration: 0.5, delay: stagger(0.2, { startDelay: 2 }) },
+									{ duration: 0.5, delay: stagger(0.2, { startDelay: 2 }), type: spring },
 								);
-								cards.forEach((card) => (card.style.transform = ''));
+
+								await el.flip;
+								cards.forEach((card) => card.style.removeProperty('transform'));
 							});
 						},
 						{ amount: 0.5 },
@@ -108,7 +132,23 @@ export function Recipes() {
 			>
 				<For each={recipe()}>
 					{(Recipe) => (
-						<li class="scale-100 z-10 w-full sm:w-auto" onPointerEnter={() => setShowAnimation(false)}>
+						<li
+							class="scale-100 z-10 w-full sm:w-auto"
+							onPointerEnter={() => {
+								setShowAnimation(false);
+
+								if (!list) return;
+
+								list.flip?.cancel();
+								const cards = list.querySelectorAll<Card>('.card-flip');
+								for (const card of cards) {
+									//! Leaves it in a "broken" state if we don't wait until the animation finishes
+									requestAnimationFrame(() => {
+										card.style.removeProperty('transform');
+									});
+								}
+							}}
+						>
 							<Recipe />
 						</li>
 					)}
