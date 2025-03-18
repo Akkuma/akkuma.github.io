@@ -1,6 +1,6 @@
 import { useSearchParams } from '@solidjs/router';
 import { animate, inView, stagger } from 'motion';
-import { For } from 'solid-js';
+import { For, createSignal } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
 import { AwsLambda } from './recipes/aws-lambda.tsx';
@@ -47,6 +47,7 @@ export const categories = [
 ] as const;
 export function Recipes() {
 	const [searchParams, setSearchParams] = useSearchParams();
+	const [showAnimation, setShowAnimation] = createSignal(true);
 
 	if (typeof window !== 'undefined' && !window.matchMedia('(min-width: 640px)').matches) {
 		setSearchParams({ recipe: 'all' }, { replace: true });
@@ -64,6 +65,8 @@ export function Recipes() {
 					inView(
 						cards,
 						(card, _entry) => {
+							if (!showAnimation()) return;
+
 							animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
 								await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
 								if (card instanceof HTMLElement) {
@@ -77,6 +80,8 @@ export function Recipes() {
 					inView(
 						el,
 						(_card, _entry) => {
+							if (!showAnimation()) return;
+
 							animate(cards, { rotateY: 180 }, { duration: 0.5, delay: stagger(0.2) }).then(async () => {
 								await animate(
 									cards,
@@ -103,7 +108,7 @@ export function Recipes() {
 			>
 				<For each={recipe()}>
 					{(Recipe) => (
-						<li class="scale-100 z-10 w-full sm:w-auto">
+						<li class="scale-100 z-10 w-full sm:w-auto" onPointerEnter={() => setShowAnimation(false)}>
 							<Recipe />
 						</li>
 					)}
