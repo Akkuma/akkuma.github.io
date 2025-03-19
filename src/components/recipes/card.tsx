@@ -1,10 +1,40 @@
-import type { FlowProps, JSX } from 'solid-js';
+import { type FlowProps, type JSX, createSignal } from 'solid-js';
 import { ArrowRightIcon } from '#/icons/arrow-right-icon.tsx';
 
+import './card.css';
 export function Card(props: FlowProps) {
+	const [isSelecting, setIsSelecting] = createSignal(false);
+
+	// Could potentially use context for link clicked handling instead?
+	// group-hover-never:[transform:rotateY(180deg)]
 	return (
 		<div class="[perspective:1000px] h-48 w-full sm:w-60 group isolate bg-background">
-			<div class="card-flip transition-transform duration-700 h-full w-full shadow-lg rounded-lg group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] group-hover:duration-500 relative">
+			<div
+				class="card-flip transition-transform duration-700 h-full w-full shadow-lg rounded-lg [transform-style:preserve-3d] group-hover-never:duration-500 relative"
+				onPointerMove={(e) => {
+					// Allows for selecting text without flipping
+					const selection = document.getSelection();
+					const isCollapsed = selection?.isCollapsed || !selection?.toString().trim();
+					if (!isCollapsed) setIsSelecting(true);
+				}}
+				onPointerEnter={(e) => {
+					if (e.pointerType === 'touch') return;
+
+					// Double enters occur from the animation and this avoids it
+					const animations = e.currentTarget.getAnimations();
+					if (animations.length > 0 && animations[0]?.finished) return;
+
+					e.currentTarget.classList.toggle('flip-to-back');
+				}}
+				onPointerUp={(e) => {
+					if (e.target.classList.contains('learn-more') || isSelecting()) {
+						setIsSelecting(false);
+						return;
+					}
+
+					e.currentTarget.classList.toggle('flip-to-back');
+				}}
+			>
 				{props.children}
 			</div>
 		</div>
@@ -50,7 +80,7 @@ Card.Back = function CardBack(props: {
 				</li>
 			</ul>
 			{props.link && (
-				<a class="absolute bottom-4 right-4 flex items-center" target="_blank" href={props.link}>
+				<a class="learn-more absolute bottom-4 right-4 flex items-center" target="_blank" href={props.link}>
 					Learn more <ArrowRightIcon />
 				</a>
 			)}

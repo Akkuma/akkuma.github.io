@@ -1,0 +1,4 @@
+.flip-to-back,
+.flip-to-back-sticky {
+	transform: rotateY(180deg);
+}

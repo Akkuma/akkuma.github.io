@@ -73,12 +73,55 @@ module.exports = {
 		},
 	},
 	plugins: [
-		function ({ addUtilities }) {
+		({ addUtilities }) => {
 			addUtilities({
 				'.transition-theme': {
 					transition: 'var(--bg-transition), var(--color-transition), var(--border-transition)',
 				},
 			});
+		},
+		// https://github.com/tailwindlabs/tailwindcss/discussions/1739#discussioncomment-9914554
+		({ addVariant, _addUtilities, matchVariant }) => {
+			// Hover media queries
+			addVariant('has-hover', '@media (hover: hover) and (pointer: fine)');
+			addVariant('no-hover', '@media not all and (hover: hover) and (pointer: fine)');
+
+			// Applied on hover if supported, never applied otherwise
+			addVariant('hover-never', '@media (hover: hover) and (pointer: fine) { &:hover }');
+			matchVariant(
+				'group-hover-never',
+				(_, { modifier }) =>
+					`@media (hover: hover) and (pointer: fine) { :merge(.group${modifier ? '\\/' + modifier : ''}):hover & }`,
+				{ values: { DEFAULT: '' } },
+			);
+			matchVariant(
+				'peer-hover-never',
+				(_, { modifier }) =>
+					`@media (hover: hover) and (pointer: fine) { :merge(.peer${modifier ? '\\/' + modifier : ''}):hover & }`,
+				{ values: { DEFAULT: '' } },
+			);
+
+			// Applied on hover if supported, always applied otherwise
+			addVariant('hover-always', [
+				'@media (hover: hover) and (pointer: fine) { &:hover }',
+				'@media not all and (hover: hover) and (pointer: fine)',
+			]);
+			matchVariant(
+				'group-hover-always',
+				(_, { modifier }) => [
+					`@media (hover: hover) and (pointer: fine) { :merge(.group${modifier ? '\\/' + modifier : ''}):hover & }`,
+					'@media not all and (hover: hover) and (pointer: fine)',
+				],
+				{ values: { DEFAULT: '' } },
+			);
+			matchVariant(
+				'peer-hover-always',
+				(_, { modifier }) => [
+					`@media (hover: hover) and (pointer: fine) { :merge(.peer${modifier ? '\\/' + modifier : ''}):hover & }`,
+					'@media not all and (hover: hover) and (pointer: fine)',
+				],
+				{ values: { DEFAULT: '' } },
+			);
 		},
 		require('@anuragroy/tailwindcss-animate'),
 		require('@tailwindcss/typography'),
