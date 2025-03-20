@@ -8,8 +8,23 @@ export default createHandler(() => (
 				<head>
 					<meta charset="utf-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
-					<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-					<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+					<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fef6f9" />
+					<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#100002" />
+
+					<title>Greg in Codeland</title>
+					<meta property="og:type" content="website" />
+					<meta property="og:title" content="Greg in Codeland" />
+					<meta
+						property="og:description"
+						content="Personal site of Greg, full stack principal software engineer with over 17 years of experience. Come join me for tea."
+					/>
+					<meta property="og:image" content="/greg_in_frame_alt.webp" />
+					<meta property="og:site_name" content="Greg in Codeland" />
+					<meta property="og:locale" content="en_US" />
+					<meta property="og:url" content="https://akkuma.github.io" />
+
+					<meta property="twitter:creator" content="@AkkumaRyuujin" />
+
 					<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 					<link rel="icon" href="/favicon/favicon.ico" />
 					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
