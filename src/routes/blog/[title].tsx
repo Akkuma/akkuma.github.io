@@ -4,6 +4,7 @@ import { Box } from '#/components/box.tsx';
 import { usePosts } from '#/hook/use-posts.js';
 
 import './[title].css';
+import { Meta, Title } from '@solidjs/meta';
 
 type Post = typeof postsMetadatas;
 const postsImports = import.meta.glob<true, string, () => Promise<Post>>('../../blog/*.mdx');
@@ -22,6 +23,14 @@ export default function Blog() {
 	return (
 		<>
 			<Suspense fallback={<div>Suspeded</div>}>
+				<Title>{`${allPosts()[0]?.title} | Greg in Codeland`}</Title>
+				<Meta property="og:title" content={allPosts()[0]?.title} />
+				<Meta property="og:description" content={allPosts()[0]?.summary} />
+				<Meta property="og:type" content="article" />
+				<Meta property="article:author" content='Greg "Akkuma" W' />
+				<Meta property="article:published_time" content={allPosts()[0]?.created.toISOString()} />
+
+				<For each={allPosts()[0]?.tags}>{(tag) => <Meta property="article:tag" content={tag} />}</For>
 				<Box
 					class='prose group-data-[theme="dark"]/root:prose-invert prose-stone lg:prose-lg *:transition-theme'
 					as="main"

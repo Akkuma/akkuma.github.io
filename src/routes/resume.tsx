@@ -1,6 +1,7 @@
 import './resume.css';
 import { onCleanup, onMount } from 'solid-js';
 
+import { Title } from '@solidjs/meta';
 import { Link } from '#/components/link.jsx';
 import { Education } from '#/components/resume/education.jsx';
 import { Profile } from '#/components/resume/profile.jsx';
@@ -45,6 +46,7 @@ export default function Resume() {
 			class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 min-h-[100vh] print:max-w-full print:px-0 text-sm"
 			id="resume"
 		>
+			<Title>Resume | Greg in Codeland</Title>
 			<header id="header" class="mb-6">
 				<div>
 					<div class="flex justify-between">
