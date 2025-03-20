@@ -52,5 +52,5 @@
   "patchedDependencies": {
     "solid-transition-group@0.2.3": "patches/solid-transition-group@0.2.3.patch"
   },
-  "packageManager": "bun@1.1.45"
+  "packageManager": "bun@1.2.5"
 }
