@@ -22,7 +22,7 @@ export function Card(props: FlowProps) {
 
 					// Double enters occur from the animation and this avoids it
 					const animations = e.currentTarget.getAnimations();
-					if (animations.length > 0 && animations[0]?.finished) return;
+					if (animations.length > 0) return;
 
 					e.currentTarget.classList.toggle('flip-to-back');
 				}}
