@@ -6,6 +6,6 @@ export interface Post extends PostMetadata {
 	default: JSX.Element;
 }
 
-export const posts: Record<string, () => Promise<Post>> = import.meta.glob<true, string, () => Promise<Post>>(
-	'./blog/*.mdx',
-);
+export const posts: Record<string, Post> = import.meta.glob<true, string, Post>('./blog/*.mdx', {
+	eager: true,
+});

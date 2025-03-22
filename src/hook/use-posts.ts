@@ -1,11 +1,13 @@
 import { createSignal } from 'solid-js';
 import { type Post, posts } from '../posts.js';
 
-const proms = Object.values(posts).map((fn) => fn());
+const postsWithFile = Object.entries(posts).map(([file, post]) => ({
+	...post,
+	file: file.replace('./blog/', ''),
+}));
 
 export function usePosts() {
-	const [posts, setPosts] = createSignal<Post[]>([]);
+	const [posts, _setPosts] = createSignal<Post[]>(postsWithFile);
 
-	Promise.all(proms).then(setPosts);
 	return posts;
 }
