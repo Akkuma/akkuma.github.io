@@ -10,19 +10,16 @@ export default createHandler(() => (
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fef6f9" />
 					<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#100002" />
-
 					<meta property="og:image" content="/greg_in_frame_alt.webp" />
 					<meta property="og:site_name" content="Greg in Codeland" />
 					<meta property="og:locale" content="en_US" />
 					{/* <meta property="og:url" content="https://akkuma.github.io" /> */}
-
 					<meta property="twitter:creator" content="AkkumaRyuujin" />
-
 					<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 					<link rel="icon" href="/favicon/favicon.ico" />
 					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
 					<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-					<link rel="manifest" href="/favicon/site.webmanifest" />
+					<link rel="manifest" href="site.webmanifest" />
 					{/* <link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 					<link
@@ -36,7 +33,6 @@ export default createHandler(() => (
 						as="style"
 						fetchpriority="high"
 					/> */}
-
 					{/* Resume */}
 					{/*
           <link rel="preconnect" href="https://rsms.me/"
@@ -49,7 +45,6 @@ export default createHandler(() => (
           <link rel="preload" as="font" href="https://rsms.me/inter/font-files/Inter-Regular.woff2?v=4.1" crossOrigin="anonymous"/>
           <link rel="preload" as="font" href="https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=4.1" crossOrigin="anonymous"/>
           <link rel="preload" as="font" href="https://rsms.me/inter/font-files/Inter-Bold.woff2?v=4.1" crossOrigin="anonymous"/>*/}
-
 					<link
 						href="https://fonts.bunny.net/css?family=fira-code:400"
 						rel="preload"
