@@ -1,6 +1,6 @@
 import { useSearchParams } from '@solidjs/router';
 import { type AnimationPlaybackControls, animate, inView, spring, stagger } from 'motion';
-import { For, createSignal } from 'solid-js';
+import { For, createSignal, onCleanup, onMount } from 'solid-js';
 import { TransitionGroup } from 'solid-transition-group';
 
 import { AwsLambda } from './recipes/aws-lambda.tsx';
@@ -62,64 +62,67 @@ export function Recipes() {
 	}
 
 	const recipe = () => recipesByCategory[searchParams.recipe as keyof typeof recipesByCategory] ?? all;
-	return (
-		<ul
-			class="flex flex-wrap gap-4"
-			ref={(el: AnimatedList) => {
-				list = el;
-				const isMobile = !window.matchMedia('(min-width: 640px)').matches;
-				const cards = el.querySelectorAll<Card>('.card-flip');
 
-				if (isMobile) {
-					inView(
+	onMount(() => {
+		if (!list) return;
+		const isMobile = !window.matchMedia('(min-width: 640px)').matches;
+		const cards = list.querySelectorAll<Card>('.card-flip');
+
+		if (isMobile) {
+			const stop = inView(
+				cards,
+				(card, _entry) => {
+					if (!showAnimation()) return;
+
+					animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
+						await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
+						if (card instanceof HTMLElement) {
+							card.style.transform = '';
+						}
+					});
+				},
+				{ amount: 0.9 },
+			);
+
+			onCleanup(stop);
+		} else {
+			const stop = inView(
+				list,
+				(_list, _entry) => {
+					// Prevent running altogether if they hovered
+					if (!showAnimation()) return;
+
+					list.flip = animate(
 						cards,
-						(card, _entry) => {
-							if (!showAnimation()) return;
-
-							animate(card, { rotateY: 180 }, { duration: 0.5 }).then(async () => {
-								await animate(card, { rotateY: 0 }, { duration: 0.5, delay: 2 });
-								if (card instanceof HTMLElement) {
-									card.style.transform = '';
-								}
-							});
+						{ rotateY: 180 },
+						{
+							duration: 0.5,
+							delay: stagger(0.2),
+							type: spring,
 						},
-						{ amount: 0.9 },
 					);
-				} else {
-					inView(
-						el,
-						(_list, _entry) => {
-							// Prevent running altogether if they hovered
-							if (!showAnimation()) return;
+					list.flip.then(async () => {
+						// Prevent running altogether if they hovered
+						if (!showAnimation()) return;
 
-							el.flip = animate(
-								cards,
-								{ rotateY: 180 },
-								{
-									duration: 0.5,
-									delay: stagger(0.2),
-									type: spring,
-								},
-							);
-							el.flip.then(async () => {
-								// Prevent running altogether if they hovered
-								if (!showAnimation()) return;
+						list.flip = animate(
+							cards,
+							{ rotateY: 0 },
+							{ duration: 0.5, delay: stagger(0.2, { startDelay: 2 }), type: spring },
+						);
 
-								el.flip = animate(
-									cards,
-									{ rotateY: 0 },
-									{ duration: 0.5, delay: stagger(0.2, { startDelay: 2 }), type: spring },
-								);
+						await list.flip;
+						cards.forEach((card) => card.style.removeProperty('transform'));
+					});
+				},
+				{ amount: 0.5 },
+			);
 
-								await el.flip;
-								cards.forEach((card) => card.style.removeProperty('transform'));
-							});
-						},
-						{ amount: 0.5 },
-					);
-				}
-			}}
-		>
+			onCleanup(stop);
+		}
+	});
+	return (
+		<ul class="flex flex-wrap gap-4" ref={list}>
 			<TransitionGroup
 				name="recipe"
 				onBeforeExit={(e) => {
