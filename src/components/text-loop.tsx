@@ -1,5 +1,5 @@
 import { animate } from 'motion';
-import { type JSX, Show, createMemo, createSignal, onCleanup } from 'solid-js';
+import { type JSX, Show, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 
 export type TextLoopProps = {
@@ -13,11 +13,26 @@ export type TextLoopProps = {
 export function TextLoop(props: TextLoopProps) {
 	const [index, setIndex] = createSignal(0);
 
-	const interval = setInterval(() => {
-		setIndex((index) => (index + 1) % props.text.length);
-	}, 2000);
+	onMount(() => {
+		const loop = () => {
+			setIndex((index) => (index + 1) % props.text.length);
+		};
+		let interval = setInterval(loop, 2000);
 
-	onCleanup(() => clearInterval(interval));
+		const handleVisibilityChange = () => {
+			if (document.hidden) {
+				clearInterval(interval);
+			} else {
+				interval = setInterval(loop, 2000);
+			}
+		};
+		document.addEventListener('visibilitychange', handleVisibilityChange);
+
+		onCleanup(() => {
+			document.removeEventListener('visibilitychange', handleVisibilityChange);
+			clearInterval(interval);
+		});
+	});
 
 	const minChars = createMemo(
 		() =>
