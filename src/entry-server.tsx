@@ -19,7 +19,7 @@ export default createHandler(() => (
 					<link rel="icon" href="/favicon/favicon.ico" />
 					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
 					<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-					<link rel="manifest" href="site.webmanifest" />
+					<link rel="manifest" href="/favicon/site.webmanifest" />
 					{/* <link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 					<link
