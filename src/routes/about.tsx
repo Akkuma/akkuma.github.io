@@ -53,7 +53,7 @@ export default function Tailwind() {
 				</P>
 				<P>
 					What are a few of the responsibilities that excite me about a job?
-					<ul class="list-disc w-96 ml-4 mt-2">
+					<ul class="list-disc w-full max-w-96 ml-4 mt-2">
 						{[
 							'Tackling new challenges',
 							'Helping other engineers',
