@@ -85,6 +85,10 @@ export default createHandler(() => (
 						{children}
 					</div>
 					{scripts}
+					<script type="text/javascript">
+						if (window.location.hostname === 'localhost') localStorage.setItem('umami.disabled', 1)
+					</script>
+					<script defer src="/um.js" data-website-id="782213f8-4bac-4c17-abf4-0d1ba4f5098f"></script>
 				</body>
 			</html>
 		)}
