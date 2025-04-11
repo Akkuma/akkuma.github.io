@@ -21,11 +21,14 @@ export default function Home() {
 				<Box class="flex gap-8 mb-16">
 					{/*thumbhash="pyiCDAIcOHjXGfh7jKr6CJxxlAiYeFd+Bg"*/}
 					<img
-						src="/greg_in_frame_alt.webp"
+						srcSet="greg_in_frame_alt.webp 328w"
+						sizes="(min-width: 768px) 328px"
+						src="greg_in_frame_alt.webp"
 						class="hidden md:block w-1/2 max-w-[328px] max-h-[367px] -mt-2"
 						width="328"
 						height="367"
 						decoding="async"
+						loading="lazy"
 					/>
 					<header class="w-full md:w-1/2 text-left">
 						<h1 class="max-6-xs text-6xl text-accent font-extralight m-0 font-title transition-theme">
