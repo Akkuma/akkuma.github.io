@@ -26,7 +26,7 @@ export default function Blog() {
 				<Title>{`${metadata.title} | Greg in Codeland`}</Title>
 				<Meta name="description" content={metadata.summary} />
 				<Meta property="og:title" content={metadata.title} />
-				<Meta property="og:description" content={metadata.summary} />
+				<Meta name="description" property="og:description" content={metadata.summary} />
 				<Meta property="og:type" content="article" />
 				<Meta property="article:author" content='Greg "Akkuma" W' />
 				<Meta property="article:published_time" content={metadata.created.toISOString()} />
