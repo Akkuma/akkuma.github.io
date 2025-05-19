@@ -1,29 +1,17 @@
-import { Meta, Title } from '@solidjs/meta';
+import { Title } from '@solidjs/meta';
 import { useSearchParams } from '@solidjs/router';
 import { type FlowProps, For } from 'solid-js';
 import { Box } from '#/components/box.tsx';
 import { Posts } from '#/components/posts.tsx';
 import { Recipes, categories } from '#/components/recipes.tsx';
 import { TextLoop } from '#/components/text-loop.tsx';
+import { TopMeta } from '#/components/top-meta.tsx';
 
 export default function Home() {
 	return (
 		<>
+			<TopMeta title="Greg in Codeland" />
 			<Title>Greg in Codeland</Title>
-			<Meta property="og:type" content="website" />
-
-			<Meta property="og:title" content="Greg in Codeland" />
-			<Meta
-				name="description"
-				content="Personal site of Greg, full stack principal software engineer with over 17 years of experience. Come join me for tea."
-			/>
-			<Meta
-				property="og:description"
-				content="Personal site of Greg, full stack principal software engineer with over 17 years of experience. Come join me for tea."
-			/>
-			<Meta property="og:image" content="https://akkuma.github.io/greg_in_frame_alt.webp" />
-			<Meta property="og:image:width" content="660" />
-			<Meta property="og:image:height" content="739" />
 			<main class="mx-auto mt-12">
 				<Box class="flex gap-8 mb-16">
 					{/*thumbhash="pyiCDAIcOHjXGfh7jKr6CJxxlAiYeFd+Bg"*/}

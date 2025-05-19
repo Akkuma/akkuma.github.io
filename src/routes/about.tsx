@@ -1,12 +1,12 @@
-import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import type { ParentProps } from 'solid-js';
 import { Box } from '#/components/box.jsx';
+import { TopMeta } from '#/components/top-meta.tsx';
 
 export default function Tailwind() {
 	return (
 		<Box as="main" class="mb-10">
-			<Title>About | Greg in Codeland</Title>
+			<TopMeta title="About | Greg in Codeland" />
 			<header>
 				<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
 					Hi{' '}
