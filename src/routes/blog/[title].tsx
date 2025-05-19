@@ -24,12 +24,14 @@ export default function Blog() {
 		<>
 			<Suspense fallback={<div>Suspeded</div>}>
 				<Title>{`${metadata.title} | Greg in Codeland`}</Title>
+				<Meta name="description" content={metadata.summary} />
 				<Meta property="og:title" content={metadata.title} />
 				<Meta property="og:description" content={metadata.summary} />
 				<Meta property="og:type" content="article" />
 				<Meta property="article:author" content='Greg "Akkuma" W' />
 				<Meta property="article:published_time" content={metadata.created.toISOString()} />
 
+				<Meta property="og:image" content={`https://akkuma.github.io/blog-images/${params.title}-og.webp`} />
 				<For each={metadata.tags}>{(tag) => <Meta property="article:tag" content={tag} />}</For>
 				<Box
 					class='prose group-data-[theme="dark"]/root:prose-invert prose-stone lg:prose-lg *:transition-theme'

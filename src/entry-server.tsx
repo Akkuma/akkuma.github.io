@@ -10,14 +10,12 @@ export default createHandler(() => (
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fef6f9" />
 					<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#100002" />
-					<meta property="og:image" content="https://akkuma.github.io/greg_in_frame_alt.webp" />
-					<meta property="og:image:width" content="660" />
-					<meta property="og:image:height" content="739" />
+
 					<meta property="og:site_name" content="Greg in Codeland" />
 					<meta property="og:locale" content="en_US" />
 					{/* <meta property="og:url" content="https://akkuma.github.io" /> */}
-					<meta property="twitter:site" content="@AkkumaRyuujin" />
-					<meta property="twitter:creator" content="@AkkumaRyuujin" />
+					<meta name="twitter:site" content="@AkkumaRyuujin" />
+					<meta name="twitter:creator" content="@AkkumaRyuujin" />
 					<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 					<link rel="icon" href="/favicon/favicon.ico" />
 					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />

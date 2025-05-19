@@ -4,8 +4,8 @@ import { postsMetadatas } from '#/_generated/posts.ts';
 export function Posts() {
 	return (
 		<nav>
-			<ol>
-				<For each={postsMetadatas}>
+			<ol class="flex flex-col gap-2">
+				<For each={postsMetadatas.filter((_) => !_.isDraft)}>
 					{(postMetadata) => (
 						<li>
 							<h3 class="text-lg">
